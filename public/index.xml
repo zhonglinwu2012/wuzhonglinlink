@@ -6,8 +6,63 @@
     <description>Recent content on 呉さんの諸々</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <lastBuildDate>Wed, 01 Feb 2017 11:41:01 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 28 Apr 2017 14:15:05 +0900</lastBuildDate>
     <atom:link href="http://wuzhonglin.link/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>dockerについてのメモ</title>
+      <link>http://wuzhonglin.link/post/docker_memo/</link>
+      <pubDate>Fri, 28 Apr 2017 14:15:05 +0900</pubDate>
+      
+      <guid>http://wuzhonglin.link/post/docker_memo/</guid>
+      <description>
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;dockerについてのメモ&#34;&gt;dockerについてのメモ&lt;/h1&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;dockerのイメージ作成&#34;&gt;dockerのイメージ作成&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;docker build --rm -q -f Dockerfile -t my-docker .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;dockerのイメージ一覧&#34;&gt;dockerのイメージ一覧&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;docker images
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;docker起動&#34;&gt;docker起動&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;docker run -it &amp;lt;image id&amp;gt; /bin/bash
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;起動しているdockerに接続&#34;&gt;起動しているdockerに接続&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;docker exec -it &amp;lt;container id&amp;gt; /bin/bash
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;dockerのイメージ削除&#34;&gt;dockerのイメージ削除&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;docker rmi &amp;lt;image id&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;dockerのコンテナー削除&#34;&gt;dockerのコンテナー削除&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;docker rm &amp;lt;CONTAINER ID&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;ラベルがついていないdockerのイメージを削除&#34;&gt;ラベルがついていないdockerのイメージを削除&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;alias docker_clean_images=&#39;docker rmi $(docker images -a --filter=dangling=true -q)&#39;
+alias docker_clean_ps=&#39;docker rm $(docker ps --filter=status=exited --filter=status=created -q)&#39;
+docker kill $(docker ps -q)
+docker_clean_ps
+docker_clean_images
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>aerospikeを試す（その３）</title>
