@@ -1,0 +1,118 @@
+<manifest alg="2" build="2017.0.2.363" opt="true" iceEnabled="true" iceMarkupVersion="2" iceEnabledOptions="link,responsive,cachebuster,textStyling" exportTarget="other" domain="koyoshieki.com" resolutions="1x" timestamp="1493282535174">
+  <folder name="css">
+    <file name="site_global.css" crc="443350757"/>
+    <file name="index.css" crc="4160365280" ref="index"/>
+  </folder>
+  <folder name="scripts">
+    <file name="jquery-1.8.3.min.js" crc="209076791" ref="index"/>
+    <file name="museutils.js" crc="4232573551" ref="index"/>
+    <file name="whatinput.js" crc="86476730" ref="index"/>
+    <file name="museconfig.js" crc="4152223963" ref="index"/>
+    <file name="jquery.watch.js" crc="3844535323" ref="index"/>
+    <file name="webpro.js" crc="3770351119" ref="index"/>
+    <file name="musewpslideshow.js" crc="4244742588" ref="index"/>
+    <file name="jquery.museoverlay.js" crc="432750910" ref="index"/>
+    <file name="touchswipe.js" crc="3912873526" ref="index"/>
+    <file name="require.js" crc="4234670167" ref="index"/>
+  </folder>
+  <folder name="images">
+    <file name="bg-crop-u4146.jpg" crc="220066899" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="img_81821.png" crc="4201925532" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="u4061-4.png" crc="4235412988" ref="index"/>
+    <file name="img_81822.png" crc="4145949145" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="u4114-4.png" crc="120569319" ref="index"/>
+    <file name="u4136-4.png" crc="145053865" ref="index"/>
+    <file name="img_818223.png" crc="160355674" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="img_8019-crop-u6334.jpg" crc="471160330" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="blank.gif" crc="4208392903" ref="index"/>
+    <file name="img_8024-crop-u6512.jpg" crc="3889296637" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="img_8043-crop-u6549.jpg" crc="305848559" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="img_8074-crop-u6586.jpg" crc="203226068" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="img_8163-crop-u6623.jpg" crc="220059540" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="搬家1.jpg" crc="20663230" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="搬家2-crop-u6697.jpg" crc="3812034881" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="搬家4-crop-u6734.jpg" crc="4196403473" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="loading.gif" crc="3815509949" ref="index"/>
+    <file name="u4224-4.png" crc="40142320" ref="index"/>
+    <file name="img_8052-crop-u6780.jpg" crc="4143938107" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="img_8053-crop-u6996.jpg" crc="308751047" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="img_8057.jpg" crc="4115580327" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="img_8058.jpg" crc="4152177864" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="img_8161.jpg" crc="164867938" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="img_8166-crop-u7144.jpg" crc="3919569767" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="u4242-4.png" crc="4216625025" ref="index"/>
+    <file name="img_8021-crop-u7204.jpg" crc="4085516522" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="img_8075-crop-u7413.jpg" crc="53255185" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="img_8108-crop-u7450.jpg" crc="3969306476" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="img_8115-crop-u7487.jpg" crc="269103637" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="img_8123-crop-u7524.jpg" crc="3812543358" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="logo1.png" crc="473343642" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="u4256-8.png" crc="4211767203" ref="index"/>
+    <file name="img_8042.jpg" crc="4076716274" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="u4953-4.png" crc="3905467285" ref="index"/>
+    <file name="image2.png" crc="367995076" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="imgres.png" crc="3981232562" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="pixta_26739840-01.png" crc="410342810" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+  </folder>
+  <file name="index.html" crc="3922316132" seo="true" mt="1493280817537" redirect="true"/>
+</manifest>

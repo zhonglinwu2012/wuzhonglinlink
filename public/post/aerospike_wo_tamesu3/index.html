@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html lang="ja-JP">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>aerospikeを試す（その３） &middot; 呉さんの諸々</title>
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<!--[if lt IE 9]>
+	<script src="http://wuzhonglin.link//js/html5.js"></script>
+	<![endif]-->
+    
+    <link href="http://wuzhonglin.link//index.xml" rel="alternate" type="application/rss+xml" title="呉さんの諸々" />
+
+    <link rel='stylesheet' id='twentyfourteen-lato-css'  href='//fonts.googleapis.com/css?family=Lato%3A300%2C400%2C700%2C900%2C300italic%2C400italic%2C700italic&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
+
+    <link rel='stylesheet' id='genericons-css' href='http://wuzhonglin.link//genericons/genericons.css' type='text/css' media='all' />
+	<link rel='stylesheet' id='twentyfourteen-style-css' href='http://wuzhonglin.link//css/style.css' type='text/css' media='all' />
+	
+	<script type='text/javascript' src='http://wuzhonglin.link//js/jquery/jquery.js'></script>
+	<script type='text/javascript' src='http://wuzhonglin.link//js/jquery/jquery-migrate.min.js'></script>
+	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+</head>
+
+<body class="home blog masthead-fixed list-view full-width grid">
+<div id="page" class="hfeed site">
+	<header id="masthead" class="site-header" role="banner">
+		<div class="header-main">
+			<h1 class="site-title"><a href="http://wuzhonglin.link//index.html" rel="home">呉さんの諸々</a></h1>
+
+			<div class="search-toggle">
+				<a href="#search-container" class="screen-reader-text">Search</a>
+			</div>
+
+			<nav id="primary-navigation" class="site-navigation primary-navigation" role="navigation">
+				<button class="menu-toggle">Primary Menu</button>
+				<a class="screen-reader-text skip-link" href="#content">Skip to content</a>
+				<div class="nav-menu">
+					<ul>
+						
+					</ul>
+				</div>
+			</nav>
+		</div>
+
+		<div id="search-container" class="search-box-wrapper hide">
+			<div class="search-box">
+                <script type="text/javascript">
+    function site_search(obj) {
+    	var host = window.location.host;
+        obj.q.value = "site:" + host + " " + obj.ss_q.value;
+    }
+</script>
+
+<aside id="search-3" class="widget widget_search">
+	<form role="search" class="search-form" action="//www.google.com/search" method="get" onSubmit="site_search(this)">
+
+	<input name="q" type="hidden" />
+	    <label>
+	        <span class="screen-reader-text">Search for:</span>
+	        <input name="ss_q" type="text" placeholder="Search ..." class="search-field" />
+	    </label>
+	    <input type="submit" value="Search" class="search-submit" />
+	</form>
+</aside>
+			</div>
+		</div>
+	</header>
+
+	<div id="main" class="site-main">
+
+
+<div id="main-content" class="main-content">
+
+	<div id="primary" class="content-area">
+		<div id="content" class="site-content" role="main">
+
+			<article class="post type-post status-publish format-standard hentry">
+
+	
+	<header class="entry-header">
+
+	
+
+		<div class="entry-meta">
+			<span class="cat-links">
+                
+                <a href="http://wuzhonglin.link//categories/technology/index.html" rel="category">technology</a>
+                
+			</span>
+		</div>
+
+		<h1 class="entry-title">aerospikeを試す（その３）</h1>
+
+		<div class="entry-meta">
+			<span class="entry-date">
+				<a href="http://wuzhonglin.link/post/aerospike_wo_tamesu3//index.html" rel="bookmark">
+					<time class="entry-date" datetime="2017-02-01 11:41:01 &#43;0900 JST">
+						February 1
+					</time>
+				</a>
+			</span>
+		</div>
+
+	</header>
+	
+	<div class="entry-content">
+		
+
+<hr />
+
+<h1 id="logとaerospikeのテスト">LOGとaerospikeのテスト</h1>
+
+<hr />
+
+<h3 id="fluentdとaerospikeを組みあわせる">fluentdとaerospikeを組みあわせる</h3>
+
+<p><em>fluentd</em> のログデータをaerospikeに投入する場合を考える。</p>
+
+<h4 id="fluentdのinstallと設定">fluentdのinstallと設定</h4>
+
+<p>以下のリンクを参照
+<a href="http://docs.fluentd.org/articles/install-by-rpm#step-1-install-from-rpm-repository">http://docs.fluentd.org/articles/install-by-rpm#step-1-install-from-rpm-repository</a></p>
+
+<pre><code class="language-bash">curl -L https://toolbelt.treasuredata.com/sh/install-redhat-td-agent2.sh | sh
+</code></pre>
+
+<h4 id="fluent-plugin-aerospikeのinstall">fluent-plugin-aerospikeのinstall</h4>
+
+<pre><code>sudo /usr/lib64/fluent/ruby/bin/gem install fluent-plugin-aerospike
+</code></pre>
+
+<h4 id="設定ファイルを編集">設定ファイルを編集</h4>
+
+<p>設定ファイルはdefaultは/etc/td-agent以下にある。</p>
+
+<pre><code class="language-bash">[root@localhost td-agent]# pwd
+/etc/td-agent
+[root@localhost td-agent]# ls -1
+logrotate.d
+prelink.conf.d
+td-agent-activities.conf
+td-agent.conf
+td-agent.conf.tmpl
+</code></pre>
+
+<p>以下は設定の一例</p>
+
+<pre><code>[root@localhost td-agent]# cat td-agent.conf
+
+&lt;source&gt;
+  type multiprocess
+  &lt;process&gt;
+    cmdline -c /etc/td-agent/td-agent-activities.conf --log /var/log/td-agent/td-agent-activities.log
+    sleep_before_start 1s
+    sleep_before_shutdown 5s
+  &lt;/process&gt;
+&lt;/source&gt;
+
+[root@localhost td-agent]# cat td-agent-activities.conf
+
+&lt;source&gt;
+  type tail
+  path /var/www/app/shared/log/act.log
+  pos_file /var/log/td-agent/app-log_activities.log.pos
+  tag activities
+  format json
+&lt;/source&gt;
+&lt;match activities&gt;
+  type rewrite_tag_filter
+  rewriterule1 account ^(.*)$ activities.$1
+&lt;/match&gt;
+&lt;match activities.*&gt;
+  type aerospike
+  address 127.0.0.1:5000
+  namespace bar
+  set acti
+&lt;/match&gt;
+</code></pre>
+
+<p>/var/www/app/shared/log/act.logは以下のようなログ形式とする</p>
+
+<pre><code>{&quot;ts&quot;:1435025600603,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;detail&quot;,&quot;act_params&quot;:[{&quot;commodityCode&quot;:&quot;CC55463&quot;}]}
+{&quot;ts&quot;:1435025679302,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;detail&quot;,&quot;act_params&quot;:[{&quot;commodityCode&quot;:&quot;CC55463&quot;}]}
+{&quot;ts&quot;:1435025694660,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;detail&quot;,&quot;act_params&quot;:[{&quot;commodityCode&quot;:&quot;CC55463&quot;}]}
+{&quot;ts&quot;:1435025729249,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;detail&quot;,&quot;act_params&quot;:[{&quot;commodityCode&quot;:&quot;CC55463&quot;}]}
+{&quot;ts&quot;:1435025731348,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;detail&quot;,&quot;act_params&quot;:[{&quot;commodityCode&quot;:&quot;CC55463&quot;}]}
+{&quot;ts&quot;:1435025750194,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;detail&quot;,&quot;act_params&quot;:[{&quot;commodityCode&quot;:&quot;CC55463&quot;}]}
+{&quot;ts&quot;:1435025771624,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;detail&quot;,&quot;act_params&quot;:[{&quot;commodityCode&quot;:&quot;CC55463&quot;}]}
+{&quot;ts&quot;:1435025775009,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;detail&quot;,&quot;act_params&quot;:[{&quot;commodityCode&quot;:&quot;CC55463&quot;}]}
+{&quot;ts&quot;:1435025777724,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;detail&quot;,&quot;act_params&quot;:[{&quot;commodityCode&quot;:&quot;CC55463&quot;}]}
+{&quot;ts&quot;:1435025778852,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;detail&quot;,&quot;act_params&quot;:[{&quot;commodityCode&quot;:&quot;CC55463&quot;}]}
+{&quot;ts&quot;:1435025780438,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;detail&quot;,&quot;act_params&quot;:[{&quot;commodityCode&quot;:&quot;CC55463&quot;}]}
+{&quot;ts&quot;:1435025856827,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;detail&quot;,&quot;act_params&quot;:[{&quot;commodityCode&quot;:&quot;CC55463&quot;}]}
+{&quot;ts&quot;:1435025880810,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;detail&quot;,&quot;act_params&quot;:[{&quot;commodityCode&quot;:&quot;CC55463&quot;}]}
+{&quot;ts&quot;:1435025982539,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;detail&quot;,&quot;act_params&quot;:[{&quot;commodityCode&quot;:&quot;CC55463&quot;}]}
+{&quot;ts&quot;:1435048801611,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;detail&quot;,&quot;act_params&quot;:[{&quot;commodityCode&quot;:&quot;CC55463&quot;}]}
+{&quot;ts&quot;:1435060089216,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;detail&quot;,&quot;act_params&quot;:[{&quot;commodityCode&quot;:&quot;CC55463&quot;}]}
+{&quot;ts&quot;:1435060218954,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;detail&quot;,&quot;act_params&quot;:[{&quot;commodityCode&quot;:&quot;CC55463&quot;}]}
+{&quot;ts&quot;:1446781223481,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;bdr_view&quot;,&quot;act_params&quot;:[{&quot;r_id&quot;:&quot;64&quot;}]}
+{&quot;ts&quot;:1446781224465,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;bdr_view&quot;,&quot;act_params&quot;:[{&quot;r_id&quot;:&quot;64&quot;}]}
+</code></pre>
+
+<h4 id="fluentdの動作確認">fluentdの動作確認</h4>
+
+<p>fluentdの起動と終了はそれぞれ以下のコマンドで実現する</p>
+
+<pre><code>/etc/init.d/td-agent start
+</code></pre>
+
+<pre><code>/etc/init.d/td-agent stop
+</code></pre>
+
+<p>fluentdを起動するしてから、ログが変更になると、aerospikeにレコードが書き込まれる</p>
+
+<pre><code class="language-sql">aql&gt; select * from bar.acti
++---------------------------------------------------+---------------+-------------+------------------+------------+-------+------------+-------------------------------+
+| key                                               | ts            | account     | vt               | cid        | ctype | act_type   | act_params                    |
++---------------------------------------------------+---------------+-------------+------------------+------------+-------+------------+-------------------------------+
+| &quot;1453689499-3381d84f-4795-4b2d-a0f9-636e78e2a049&quot; | 1435025982539 | &quot;ac_123_55&quot; | &quot;2e7RHi.kSTLPuk&quot; | &quot;12345678&quot; | &quot;1&quot;   | &quot;detail&quot;   | [{&quot;commodityCode&quot;:&quot;CC55463&quot;}] |
+| &quot;1453689441-52c594e5-36af-42be-843c-baf8f40864e0&quot; | 1435025694660 | &quot;ac_123_55&quot; | &quot;2e7RHi.kSTLPuk&quot; | &quot;12345678&quot; | &quot;1&quot;   | &quot;detail&quot;   | [{&quot;commodityCode&quot;:&quot;CC55463&quot;}] |
+| &quot;1453689441-3005ed82-162f-4d9f-9ea8-e7fe85ab41e4&quot; | 1447070740725 | &quot;ac_123_55&quot; | &quot;2e7RHi.kSTLPuk&quot; | &quot;12345678&quot; | &quot;1&quot;   | &quot;bdr_view&quot; | [{&quot;bdr_r_id&quot;:&quot;64&quot;}]           |
+| &quot;1453689441-22193e19-5959-4ad1-aa75-42b02eae6140&quot; | 1435025982539 | &quot;ac_123_55&quot; | &quot;2e7RHi.kSTLPuk&quot; | &quot;12345678&quot; | &quot;1&quot;   | &quot;detail&quot;   | [{&quot;commodityCode&quot;:&quot;CC55463&quot;}] |
+| &quot;1453689499-3cb6eaae-ac2c-4a3b-8dd3-169981fbac36&quot; | 1435025856827 | &quot;ac_123_55&quot; | &quot;2e7RHi.kSTLPuk&quot; | &quot;12345678&quot; | &quot;1&quot;   | &quot;detail&quot;   | [{&quot;commodityCode&quot;:&quot;CC55463&quot;}] |
+| &quot;1453689499-f1451be5-6176-4184-bf6b-b7e03e414bea&quot; | 1435025775009 | &quot;ac_123_55&quot; | &quot;2e7RHi.kSTLPuk&quot; | &quot;12345678&quot; | &quot;1&quot;   | &quot;detail&quot;   | [{&quot;commodityCode&quot;:&quot;CC55463&quot;}] |
+...
+</code></pre>
+
+<h4 id="ついでにfluentdから別のhttp-serverにpostし直すことも試した">ついでにfluentdから別のhttp serverにpostし直すことも試した。</h4>
+
+<p>gemのinstall</p>
+
+<pre><code>/usr/lib64/fluent/ruby/bin/gem install fluent-plugin-out-http
+</code></pre>
+
+<p>設定ファイル td-agent-activities.conf:</p>
+
+<pre><code>&lt;source&gt;
+  type tail
+  path /var/www/mario-app/shared/log/act.log
+  pos_file /var/log/td-agent/mario-app-log_activities.log.pos
+  tag activities
+  format json
+&lt;/source&gt;
+&lt;match *&gt;
+  type http
+  endpoint_url http://127.0.0.1:4567/
+  http_method get
+  raise_on_error false
+&lt;/match&gt;
+</code></pre>
+
+<p>受け取るhttp serverの実装はとにかく手間を省くため、sinatraで実装</p>
+
+<pre><code>require 'sinatra'
+
+get &quot;/&quot; do
+  File.open(&quot;log&quot;,&quot;a&quot;) do |f|
+    f.puts(params)
+  end
+  params.to_s
+end
+
+post &quot;/&quot; do
+  File.open(&quot;log&quot;,&quot;a&quot;) do |f|
+    f.puts(params)
+  end
+  params.to_s
+end
+</code></pre>
+
+<p>http serverを起動</p>
+
+<pre><code>[vagrant@localhost aerospike]$ ruby myapp.rb
+[2016-01-25 06:06:29] INFO  WEBrick 1.3.1
+[2016-01-25 06:06:29] INFO  ruby 2.1.2 (2014-05-08) [x86_64-linux]
+== Sinatra (v1.4.6) has taken the stage on 4567 for development with backup from WEBrick
+[2016-01-25 06:06:29] INFO  WEBrick::HTTPServer#start: pid=8359 port=4567
+</code></pre>
+
+<p>前記のact.logを変更すると、logファイルが出力される。
+結果のlogの中身の例</p>
+
+<pre><code class="language-javascript">{&quot;ts&quot;=&gt;&quot;1435025600603&quot;, &quot;account&quot;=&gt;&quot;ac_123_55&quot;, &quot;vt&quot;=&gt;&quot;2e7RHi.kSTLPuk&quot;, &quot;cid&quot;=&gt;&quot;12345678&quot;, &quot;ctype&quot;=&gt;&quot;1&quot;, &quot;act_type&quot;=&gt;&quot;detail&quot;, &quot;act_params&quot;=&gt;&quot;{\&quot;commodityCode\&quot;=&gt;\&quot;CC55463\&quot;}&quot;}
+{&quot;ts&quot;=&gt;&quot;1435025679302&quot;, &quot;account&quot;=&gt;&quot;ac_123_55&quot;, &quot;vt&quot;=&gt;&quot;2e7RHi.kSTLPuk&quot;, &quot;cid&quot;=&gt;&quot;12345678&quot;, &quot;ctype&quot;=&gt;&quot;1&quot;, &quot;act_type&quot;=&gt;&quot;detail&quot;, &quot;act_params&quot;=&gt;&quot;{\&quot;commodityCode\&quot;=&gt;\&quot;CC55464\&quot;}&quot;}
+{&quot;ts&quot;=&gt;&quot;1435025679412&quot;, &quot;account&quot;=&gt;&quot;ac_123_55&quot;, &quot;vt&quot;=&gt;&quot;2e7RHi.kSTLPuk&quot;, &quot;cid&quot;=&gt;&quot;12345678&quot;, &quot;ctype&quot;=&gt;&quot;1&quot;, &quot;act_type&quot;=&gt;&quot;detail&quot;, &quot;act_params&quot;=&gt;&quot;{\&quot;commodityCode\&quot;=&gt;\&quot;NE663BU102XX\&quot;}&quot;}
+...
+</code></pre>
+
+	</div>
+
+	<footer class="entry-meta">
+		<span class="tag-links">		
+			
+                <a href="http://wuzhonglin.link//tags/aerospike/index.html" rel="tag">aerospike</a>
+            
+		</span>
+	</footer>
+</article> 
+
+			
+		
+		</div>
+
+	</div>
+	<div id="secondary">
+
+	
+
+	<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
+
+		<script type="text/javascript">
+    function site_search(obj) {
+    	var host = window.location.host;
+        obj.q.value = "site:" + host + " " + obj.ss_q.value;
+    }
+</script>
+
+<aside id="search-3" class="widget widget_search">
+	<form role="search" class="search-form" action="//www.google.com/search" method="get" onSubmit="site_search(this)">
+
+	<input name="q" type="hidden" />
+	    <label>
+	        <span class="screen-reader-text">Search for:</span>
+	        <input name="ss_q" type="text" placeholder="Search ..." class="search-field" />
+	    </label>
+	    <input type="submit" value="Search" class="search-submit" />
+	</form>
+</aside>
+
+		<aside id="recent-posts-3" class="widget widget_recent_entries">
+
+	
+	<h1 class="widget-title">Recent Posts</h1>
+		<ul>
+			
+		</ul>
+	
+</aside>
+
+		<aside id="categories-3" class="widget widget_categories">
+	
+	<h1 class="widget-title">Categories</h1>
+
+	<ul>
+		
+		
+		
+		<li class="cat-item">
+			<a href="http://wuzhonglin.link//categories/technology/index.html">Technology</a>
+		</li>
+
+		
+
+	</ul>
+
+</aside>
+
+	</div>
+
+</div>
+
+</div>
+
+		</div>
+
+		<footer id="colophon" class="site-footer" role="contentinfo">
+
+			<div class="site-info">
+				<a href="http://gohugo.io">Proudly powered by Hugo</a>
+			</div>
+		</footer>
+	</div>
+
+	<script type='text/javascript' src='http://wuzhonglin.link//js/functions.js'></script>
+</body>
+</html>
