@@ -1,6 +1,6 @@
 languageCode = "ja-JP"
 title = "呉さんの諸々"
-baseURL = "http://wuzhonglin.link/"
+baseURL = "http://wuzhonglin.link"
 contentDir = "content"
 layoutDir = "layouts"
 publishDir = "public"
