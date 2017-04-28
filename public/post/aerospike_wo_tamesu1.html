@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html lang="ja-JP">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>aerospikeを試す（その１） &middot; 呉さんの諸々</title>
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<!--[if lt IE 9]>
+	<script src="http://wuzhonglin.link/js/html5.js"></script>
+	<![endif]-->
+    
+    <link href="http://wuzhonglin.link/index.xml" rel="alternate" type="application/rss+xml" title="呉さんの諸々" />
+
+    <link rel='stylesheet' id='twentyfourteen-lato-css'  href='//fonts.googleapis.com/css?family=Lato%3A300%2C400%2C700%2C900%2C300italic%2C400italic%2C700italic&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
+
+    <link rel='stylesheet' id='genericons-css' href='http://wuzhonglin.link/genericons/genericons.css' type='text/css' media='all' />
+	<link rel='stylesheet' id='twentyfourteen-style-css' href='http://wuzhonglin.link/css/style.css' type='text/css' media='all' />
+	
+	<script type='text/javascript' src='http://wuzhonglin.link/js/jquery/jquery.js'></script>
+	<script type='text/javascript' src='http://wuzhonglin.link/js/jquery/jquery-migrate.min.js'></script>
+	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+</head>
+
+<body class="home blog masthead-fixed list-view full-width grid">
+<div id="page" class="hfeed site">
+	<header id="masthead" class="site-header" role="banner">
+		<div class="header-main">
+			<h1 class="site-title"><a href="http://wuzhonglin.link/index.html" rel="home">呉さんの諸々</a></h1>
+
+			<div class="search-toggle">
+				<a href="#search-container" class="screen-reader-text">Search</a>
+			</div>
+
+			<nav id="primary-navigation" class="site-navigation primary-navigation" role="navigation">
+				<button class="menu-toggle">Primary Menu</button>
+				<a class="screen-reader-text skip-link" href="#content">Skip to content</a>
+				<div class="nav-menu">
+					<ul>
+						
+					</ul>
+				</div>
+			</nav>
+		</div>
+
+		<div id="search-container" class="search-box-wrapper hide">
+			<div class="search-box">
+                <script type="text/javascript">
+    function site_search(obj) {
+    	var host = window.location.host;
+        obj.q.value = "site:" + host + " " + obj.ss_q.value;
+    }
+</script>
+
+<aside id="search-3" class="widget widget_search">
+	<form role="search" class="search-form" action="//www.google.com/search" method="get" onSubmit="site_search(this)">
+
+	<input name="q" type="hidden" />
+	    <label>
+	        <span class="screen-reader-text">Search for:</span>
+	        <input name="ss_q" type="text" placeholder="Search ..." class="search-field" />
+	    </label>
+	    <input type="submit" value="Search" class="search-submit" />
+	</form>
+</aside>
+			</div>
+		</div>
+	</header>
+
+	<div id="main" class="site-main">
+
+
+<div id="main-content" class="main-content">
+
+	<div id="primary" class="content-area">
+		<div id="content" class="site-content" role="main">
+
+			<article class="post type-post status-publish format-standard hentry">
+
+	
+	<header class="entry-header">
+
+	
+
+		<div class="entry-meta">
+			<span class="cat-links">
+                
+                <a href="http://wuzhonglin.link/categories/technology/index.html" rel="category">technology</a>
+                
+			</span>
+		</div>
+
+		<h1 class="entry-title">aerospikeを試す（その１）</h1>
+
+		<div class="entry-meta">
+			<span class="entry-date">
+				<a href="http://wuzhonglin.link/post/aerospike_wo_tamesu1.html/index.html" rel="bookmark">
+					<time class="entry-date" datetime="2017-02-01 11:36:34 &#43;0900 JST">
+						February 1
+					</time>
+				</a>
+			</span>
+		</div>
+
+	</header>
+	
+	<div class="entry-content">
+		
+
+<hr />
+
+<h1 id="aerospikeのinstall">aerospikeのinstall</h1>
+
+<hr />
+
+<h2 id="install">install</h2>
+
+<p><a href="http://www.aerospike.com/">http://www.aerospike.com/</a> を開く</p>
+
+<p>Try Communication Edition をクリック</p>
+
+<p>Set up an Aerospike Serverをクリック</p>
+
+<p>Linuxを選択してクリック</p>
+
+<p>Continueをクリック</p>
+
+<p>Choose Your Linuxをクリック</p>
+
+<p>Install On Redhatを選択</p>
+
+<p>画面の指示通りを実行する</p>
+
+<p>注意：aerospikeは3000と3001を使うが、開発環境ではport衝突する場合、それを修正</p>
+
+<pre><code>sudo vi /etc/aerospike/aerospike.conf
+</code></pre>
+
+<p>その中のport 3000とport 3001を別の番号に書き換える、例えば5000,5001</p>
+
+<h2 id="開発ツール関係">開発ツール関係</h2>
+
+<p>コマンドラインではaqlとascliがあります、
+それぞれsqlライクとcliのコマンドです</p>
+
+<p>ruby用はgem install aerospikeでgem installできる
+<a href="https://github.com/aerospike/aerospike-client-ruby">https://github.com/aerospike/aerospike-client-ruby</a>
+↑のexamples以下に例があります</p>
+
+<p>embulk のinstallについては <a href="https://github.com/embulk/embulk#linux--mac--bsd">https://github.com/embulk/embulk#linux--mac--bsd</a> を参照</p>
+
+<p>aerospikeのpluginは embulk gem install embulk-output-aerospike でinstall</p>
+
+<p><a href="https://github.com/tkrs/embulk-output-aerospike">https://github.com/tkrs/embulk-output-aerospike</a></p>
+
+<p>パラメータなどは↑を参照</p>
+
+<h2 id="embulkでデータロード">embulkでデータロード</h2>
+
+<p>mysqlのDBからデータをaerospikeにロードしてみる。
+一応成功しているように見えるが、結果がおかしい、全部最後のデータになってしまいます。</p>
+
+<p>DBの内容：</p>
+
+<table>
+<thead>
+<tr>
+<th>user_id</th>
+<th>user_no</th>
+<th>customer_status</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>0000000000609692</td>
+<td>1</td>
+<td>ng</td>
+</tr>
+
+<tr>
+<td>0000000000609777</td>
+<td>2</td>
+<td>ng</td>
+</tr>
+
+<tr>
+<td>0000000000609787</td>
+<td>3</td>
+<td>ok</td>
+</tr>
+</tbody>
+</table>
+
+<p>config.yml:</p>
+
+<pre><code class="language-yaml">in:
+  type: mysql
+  host: localhost
+  user: root
+  password: root
+  database: test
+  query: &quot;select user_id, user_no, customer_status as status from users limit 3&quot;
+out:
+  type: aerospike
+  hosts:
+  - {name: '127.0.0.1', port: 5000}
+  command: put
+  namespace: bar
+  set_name: users
+  key_name: user_id
+  client_policy:
+    max_retries: 3
+  write_policy:
+    generation: 0
+    expiration: 64000
+    send_key: true
+</code></pre>
+
+<p>embulkを実行する</p>
+
+<pre><code>embulk run config.yml
+</code></pre>
+
+<p>aqlで結果を確認すると</p>
+
+<table>
+<thead>
+<tr>
+<th>user_id</th>
+<th>user_no</th>
+<th>customer_status</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>0000000000609692</td>
+<td>3</td>
+<td>ok</td>
+</tr>
+
+<tr>
+<td>0000000000609777</td>
+<td>3</td>
+<td>ok</td>
+</tr>
+
+<tr>
+<td>0000000000609787</td>
+<td>3</td>
+<td>ok</td>
+</tr>
+</tbody>
+</table>
+
+<p>次回 rubyとaerospikeで試す</p>
+
+	</div>
+
+	<footer class="entry-meta">
+		<span class="tag-links">		
+			
+                <a href="http://wuzhonglin.link/tags/aerospike/index.html" rel="tag">aerospike</a>
+            
+		</span>
+	</footer>
+</article> 
+
+			
+		
+		</div>
+
+	</div>
+	<div id="secondary">
+
+	
+
+	<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
+
+		<script type="text/javascript">
+    function site_search(obj) {
+    	var host = window.location.host;
+        obj.q.value = "site:" + host + " " + obj.ss_q.value;
+    }
+</script>
+
+<aside id="search-3" class="widget widget_search">
+	<form role="search" class="search-form" action="//www.google.com/search" method="get" onSubmit="site_search(this)">
+
+	<input name="q" type="hidden" />
+	    <label>
+	        <span class="screen-reader-text">Search for:</span>
+	        <input name="ss_q" type="text" placeholder="Search ..." class="search-field" />
+	    </label>
+	    <input type="submit" value="Search" class="search-submit" />
+	</form>
+</aside>
+
+		<aside id="recent-posts-3" class="widget widget_recent_entries">
+
+	
+	<h1 class="widget-title">Recent Posts</h1>
+		<ul>
+			
+		</ul>
+	
+</aside>
+
+		<aside id="categories-3" class="widget widget_categories">
+	
+	<h1 class="widget-title">Categories</h1>
+
+	<ul>
+		
+		
+		
+		<li class="cat-item">
+			<a href="http://wuzhonglin.link/categories/technology/index.html">Technology</a>
+		</li>
+
+		
+
+	</ul>
+
+</aside>
+
+	</div>
+
+</div>
+
+</div>
+
+		</div>
+
+		<footer id="colophon" class="site-footer" role="contentinfo">
+
+			<div class="site-info">
+				<a href="http://gohugo.io">Proudly powered by Hugo</a>
+			</div>
+		</footer>
+	</div>
+
+	<script type='text/javascript' src='http://wuzhonglin.link/js/functions.js'></script>
+</body>
+</html>

@@ -76,97 +76,9 @@
 		<div id="content" class="site-content" role="main">
 
 			<header class="archive-header">
-				<h1 class="archive-title">Posts Archive</h1>
+				<h1 class="archive-title">Aerospike Archive</h1>
 			</header>
 
-			
-				<article class="post type-post status-publish format-standard hentry">
-
-	
-	<header class="entry-header">
-
-	
-
-		<div class="entry-meta">
-			<span class="cat-links">
-                
-                <a href="http://wuzhonglin.link/categories/technology/index.html" rel="category">technology</a>
-                
-			</span>
-		</div>
-
-		<h1 class="entry-title">dockerについてのメモ</h1>
-
-		<div class="entry-meta">
-			<span class="entry-date">
-				<a href="http://wuzhonglin.link/post/docker_memo//index.html" rel="bookmark">
-					<time class="entry-date" datetime="2017-04-28 14:15:05 &#43;0900 JST">
-						April 28
-					</time>
-				</a>
-			</span>
-		</div>
-
-	</header>
-	
-	<div class="entry-content">
-		
-
-<hr />
-
-<h1 id="dockerについてのメモ">dockerについてのメモ</h1>
-
-<hr />
-
-<h2 id="dockerのイメージ作成">dockerのイメージ作成</h2>
-
-<pre><code>docker build --rm -q -f Dockerfile -t my-docker .
-</code></pre>
-
-<h2 id="dockerのイメージ一覧">dockerのイメージ一覧</h2>
-
-<pre><code>docker images
-</code></pre>
-
-<h2 id="docker起動">docker起動</h2>
-
-<pre><code>docker run -it &lt;image id&gt; /bin/bash
-</code></pre>
-
-<h2 id="起動しているdockerに接続">起動しているdockerに接続</h2>
-
-<pre><code>docker exec -it &lt;container id&gt; /bin/bash
-</code></pre>
-
-<h2 id="dockerのイメージ削除">dockerのイメージ削除</h2>
-
-<pre><code>docker rmi &lt;image id&gt;
-</code></pre>
-
-<h2 id="dockerのコンテナー削除">dockerのコンテナー削除</h2>
-
-<pre><code>docker rm &lt;CONTAINER ID&gt;
-</code></pre>
-
-<h2 id="ラベルがついていないdockerのイメージを削除">ラベルがついていないdockerのイメージを削除</h2>
-
-<pre><code>alias docker_clean_images='docker rmi $(docker images -a --filter=dangling=true -q)'
-alias docker_clean_ps='docker rm $(docker ps --filter=status=exited --filter=status=created -q)'
-docker kill $(docker ps -q)
-docker_clean_ps
-docker_clean_images
-</code></pre>
-
-	</div>
-
-	<footer class="entry-meta">
-		<span class="tag-links">		
-			
-                <a href="http://wuzhonglin.link/tags/docker/index.html" rel="tag">docker</a>
-            
-		</span>
-	</footer>
-</article> 
 			
 				<article class="post type-post status-publish format-standard hentry">
 
@@ -187,7 +99,7 @@ docker_clean_images
 
 		<div class="entry-meta">
 			<span class="entry-date">
-				<a href="http://wuzhonglin.link/post/aerospike_wo_tamesu3//index.html" rel="bookmark">
+				<a href="http://wuzhonglin.link/post/aerospike_wo_tamesu3.html/index.html" rel="bookmark">
 					<time class="entry-date" datetime="2017-02-01 11:41:01 &#43;0900 JST">
 						February 1
 					</time>
@@ -410,7 +322,7 @@ end
 
 		<div class="entry-meta">
 			<span class="entry-date">
-				<a href="http://wuzhonglin.link/post/aerospike_wo_tamesu2//index.html" rel="bookmark">
+				<a href="http://wuzhonglin.link/post/aerospike_wo_tamesu2.html/index.html" rel="bookmark">
 					<time class="entry-date" datetime="2017-02-01 11:39:44 &#43;0900 JST">
 						February 1
 					</time>
@@ -597,7 +509,7 @@ client.close
 
 		<div class="entry-meta">
 			<span class="entry-date">
-				<a href="http://wuzhonglin.link/post/aerospike_wo_tamesu1//index.html" rel="bookmark">
+				<a href="http://wuzhonglin.link/post/aerospike_wo_tamesu1.html/index.html" rel="bookmark">
 					<time class="entry-date" datetime="2017-02-01 11:36:34 &#43;0900 JST">
 						February 1
 					</time>
@@ -805,19 +717,15 @@ out:
 		<ul>
 			
 			<li>
-				<a href="http://wuzhonglin.link/post/docker_memo//index.html">dockerについてのメモ</a>
+				<a href="http://wuzhonglin.link/post/aerospike_wo_tamesu3.html/index.html">aerospikeを試す（その３）</a>
 			</li>
 			
 			<li>
-				<a href="http://wuzhonglin.link/post/aerospike_wo_tamesu3//index.html">aerospikeを試す（その３）</a>
+				<a href="http://wuzhonglin.link/post/aerospike_wo_tamesu2.html/index.html">aerospikeを試す（その２）</a>
 			</li>
 			
 			<li>
-				<a href="http://wuzhonglin.link/post/aerospike_wo_tamesu2//index.html">aerospikeを試す（その２）</a>
-			</li>
-			
-			<li>
-				<a href="http://wuzhonglin.link/post/aerospike_wo_tamesu1//index.html">aerospikeを試す（その１）</a>
+				<a href="http://wuzhonglin.link/post/aerospike_wo_tamesu1.html/index.html">aerospikeを試す（その１）</a>
 			</li>
 			
 		</ul>

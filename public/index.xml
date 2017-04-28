@@ -11,10 +11,10 @@
     
     <item>
       <title>dockerについてのメモ</title>
-      <link>http://wuzhonglin.link/post/docker_memo/</link>
+      <link>http://wuzhonglin.link/post/docker_memo.html</link>
       <pubDate>Fri, 28 Apr 2017 14:15:05 +0900</pubDate>
       
-      <guid>http://wuzhonglin.link/post/docker_memo/</guid>
+      <guid>http://wuzhonglin.link/post/docker_memo.html</guid>
       <description>
 
 &lt;hr /&gt;
@@ -66,10 +66,10 @@ docker_clean_images
     
     <item>
       <title>aerospikeを試す（その３）</title>
-      <link>http://wuzhonglin.link/post/aerospike_wo_tamesu3/</link>
+      <link>http://wuzhonglin.link/post/aerospike_wo_tamesu3.html</link>
       <pubDate>Wed, 01 Feb 2017 11:41:01 +0900</pubDate>
       
-      <guid>http://wuzhonglin.link/post/aerospike_wo_tamesu3/</guid>
+      <guid>http://wuzhonglin.link/post/aerospike_wo_tamesu3.html</guid>
       <description>
 
 &lt;hr /&gt;
@@ -256,10 +256,10 @@ end
     
     <item>
       <title>aerospikeを試す（その２）</title>
-      <link>http://wuzhonglin.link/post/aerospike_wo_tamesu2/</link>
+      <link>http://wuzhonglin.link/post/aerospike_wo_tamesu2.html</link>
       <pubDate>Wed, 01 Feb 2017 11:39:44 +0900</pubDate>
       
-      <guid>http://wuzhonglin.link/post/aerospike_wo_tamesu2/</guid>
+      <guid>http://wuzhonglin.link/post/aerospike_wo_tamesu2.html</guid>
       <description>
 
 &lt;hr /&gt;
@@ -410,10 +410,10 @@ client.close
     
     <item>
       <title>aerospikeを試す（その１）</title>
-      <link>http://wuzhonglin.link/post/aerospike_wo_tamesu1/</link>
+      <link>http://wuzhonglin.link/post/aerospike_wo_tamesu1.html</link>
       <pubDate>Wed, 01 Feb 2017 11:36:34 +0900</pubDate>
       
-      <guid>http://wuzhonglin.link/post/aerospike_wo_tamesu1/</guid>
+      <guid>http://wuzhonglin.link/post/aerospike_wo_tamesu1.html</guid>
       <description>
 
 &lt;hr /&gt;

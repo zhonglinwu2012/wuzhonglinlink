@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html lang="ja-JP">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>aerospikeを試す（その２） &middot; 呉さんの諸々</title>
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<!--[if lt IE 9]>
+	<script src="http://wuzhonglin.link/js/html5.js"></script>
+	<![endif]-->
+    
+    <link href="http://wuzhonglin.link/index.xml" rel="alternate" type="application/rss+xml" title="呉さんの諸々" />
+
+    <link rel='stylesheet' id='twentyfourteen-lato-css'  href='//fonts.googleapis.com/css?family=Lato%3A300%2C400%2C700%2C900%2C300italic%2C400italic%2C700italic&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
+
+    <link rel='stylesheet' id='genericons-css' href='http://wuzhonglin.link/genericons/genericons.css' type='text/css' media='all' />
+	<link rel='stylesheet' id='twentyfourteen-style-css' href='http://wuzhonglin.link/css/style.css' type='text/css' media='all' />
+	
+	<script type='text/javascript' src='http://wuzhonglin.link/js/jquery/jquery.js'></script>
+	<script type='text/javascript' src='http://wuzhonglin.link/js/jquery/jquery-migrate.min.js'></script>
+	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+</head>
+
+<body class="home blog masthead-fixed list-view full-width grid">
+<div id="page" class="hfeed site">
+	<header id="masthead" class="site-header" role="banner">
+		<div class="header-main">
+			<h1 class="site-title"><a href="http://wuzhonglin.link/index.html" rel="home">呉さんの諸々</a></h1>
+
+			<div class="search-toggle">
+				<a href="#search-container" class="screen-reader-text">Search</a>
+			</div>
+
+			<nav id="primary-navigation" class="site-navigation primary-navigation" role="navigation">
+				<button class="menu-toggle">Primary Menu</button>
+				<a class="screen-reader-text skip-link" href="#content">Skip to content</a>
+				<div class="nav-menu">
+					<ul>
+						
+					</ul>
+				</div>
+			</nav>
+		</div>
+
+		<div id="search-container" class="search-box-wrapper hide">
+			<div class="search-box">
+                <script type="text/javascript">
+    function site_search(obj) {
+    	var host = window.location.host;
+        obj.q.value = "site:" + host + " " + obj.ss_q.value;
+    }
+</script>
+
+<aside id="search-3" class="widget widget_search">
+	<form role="search" class="search-form" action="//www.google.com/search" method="get" onSubmit="site_search(this)">
+
+	<input name="q" type="hidden" />
+	    <label>
+	        <span class="screen-reader-text">Search for:</span>
+	        <input name="ss_q" type="text" placeholder="Search ..." class="search-field" />
+	    </label>
+	    <input type="submit" value="Search" class="search-submit" />
+	</form>
+</aside>
+			</div>
+		</div>
+	</header>
+
+	<div id="main" class="site-main">
+
+
+<div id="main-content" class="main-content">
+
+	<div id="primary" class="content-area">
+		<div id="content" class="site-content" role="main">
+
+			<article class="post type-post status-publish format-standard hentry">
+
+	
+	<header class="entry-header">
+
+	
+
+		<div class="entry-meta">
+			<span class="cat-links">
+                
+                <a href="http://wuzhonglin.link/categories/technology/index.html" rel="category">technology</a>
+                
+			</span>
+		</div>
+
+		<h1 class="entry-title">aerospikeを試す（その２）</h1>
+
+		<div class="entry-meta">
+			<span class="entry-date">
+				<a href="http://wuzhonglin.link/post/aerospike_wo_tamesu2.html/index.html" rel="bookmark">
+					<time class="entry-date" datetime="2017-02-01 11:39:44 &#43;0900 JST">
+						February 1
+					</time>
+				</a>
+			</span>
+		</div>
+
+	</header>
+	
+	<div class="entry-content">
+		
+
+<hr />
+
+<h1 id="rubyによるアクセス">rubyによるアクセス</h1>
+
+<hr />
+
+<p>rubyでaerospikeにアクセスしてみる。</p>
+
+<h4 id="install">install</h4>
+
+<p>まずgemをインストール</p>
+
+<pre><code>gem install aerospike
+</code></pre>
+
+<h4 id="レコード作成-ruby-code">レコード作成(ruby code)</h4>
+
+<pre><code class="language-ruby">require 'rubygems'
+require 'aerospike'
+include Aerospike
+client = Client.new('127.0.0.1', 5000)
+
+key = Key.new('bar', 'user', '0000000000609787')
+bin1 = Bin.new('customer_code','0000000000609787')
+bin2 = Bin.new('user_no',1)
+bin3 = Bin.new('status','ok')
+
+client.put(key,[bin1,bin2,bin3])
+client.close
+</code></pre>
+
+<p>aqlで確認</p>
+
+<pre><code class="language-sql">aql&gt; select * from bar.user
++--------------------+--------------------+---------+--------+
+| key                | customer_code      | user_no | status |
++--------------------+--------------------+---------+--------+
+| &quot;0000000000609787&quot; | &quot;0000000000609787&quot; | 1       | &quot;ok&quot;   |
++--------------------+--------------------+---------+--------+
+1 row in set (0.038 secs)
+</code></pre>
+
+<h4 id="rubyで読む">rubyで読む</h4>
+
+<pre><code class="language-ruby">require 'rubygems'
+require 'aerospike'
+include Aerospike
+client = Client.new('127.0.0.1', 5000)
+
+key = Key.new('bar', 'user', '0000000000609787')
+record = client.get(key)
+puts record.bins
+
+puts client.exists(key)
+client.close
+</code></pre>
+
+<p>実行結果</p>
+
+<pre><code class="language-javascript">{&quot;customer_code&quot;=&gt;&quot;0000000000609787&quot;, &quot;user_no&quot;=&gt;1, &quot;status&quot;=&gt;&quot;ok&quot;}
+true
+</code></pre>
+
+<h4 id="レコードの削除">レコードの削除</h4>
+
+<pre><code class="language-ruby">require 'rubygems'
+require 'aerospike'
+include Aerospike
+client = Client.new('127.0.0.1', 5000)
+
+key = Key.new('bar', 'user', '0000000000609787')
+record = client.get(key)
+puts record.bins
+
+client.delete(key)
+puts client.exists(key)
+
+client.close
+</code></pre>
+
+<p>実行結果</p>
+
+<pre><code class="language-javascript">{&quot;customer_code&quot;=&gt;&quot;0000000000609787&quot;, &quot;user_no&quot;=&gt;1, &quot;status&quot;=&gt;&quot;ok&quot;}
+false
+</code></pre>
+
+<h4 id="データの書き換え">データの書き換え</h4>
+
+<pre><code class="language-ruby">require 'rubygems'
+require 'aerospike'
+include Aerospike
+client = Client.new('127.0.0.1', 5000)
+
+key = Key.new('bar', 'user', '0000000000609787')
+bin1 = Bin.new('customer_code','0000000000609787')
+bin2 = Bin.new('user_no',1)
+bin3 = Bin.new('status','ok')
+client.put(key,[bin1,bin2,bin3])
+
+bin4 = Bin.new('status','ng')
+client.put(key,[bin1,bin2,bin4])
+client.close
+</code></pre>
+
+<p>結果</p>
+
+<pre><code class="language-sql">aql&gt; select * from bar.user
++--------------------+--------------------+---------+--------+
+| key                | customer_code      | user_no | status |
++--------------------+--------------------+---------+--------+
+| &quot;0000000000609787&quot; | &quot;0000000000609787&quot; | 1       | &quot;ng&quot;   |
++--------------------+--------------------+---------+--------+
+1 row in set (0.035 secs)
+</code></pre>
+
+<h4 id="jsonデータ形式で直接書きこむ">JSONデータ形式で直接書きこむ</h4>
+
+<pre><code class="language-ruby">require 'rubygems'
+require 'aerospike'
+include Aerospike
+client = Client.new('127.0.0.1', 5000)
+
+key = Key.new('bar', 'user', '0000000000609692')
+hm = {'customer_code'=&gt;'0000000000609692','user_no'=&gt;2,'status'=&gt;'ok'}
+
+client.put(key,hm)
+
+client.close
+</code></pre>
+
+<p>結果</p>
+
+<pre><code class="language-sql">aql&gt; select * from bar.user
++--------------------+--------------------+---------+--------+
+| key                | customer_code      | user_no | status |
++--------------------+--------------------+---------+--------+
+| &quot;0000000000609787&quot; | &quot;0000000000609787&quot; | 1       | &quot;ng&quot;   |
+| &quot;0000000000609692&quot; | &quot;0000000000609692&quot; | 2       | &quot;ok&quot;   |
++--------------------+--------------------+---------+--------+
+2 rows in set (0.038 secs)
+</code></pre>
+
+<p>次回*fluentd*と*aerospike*を試す</p>
+
+	</div>
+
+	<footer class="entry-meta">
+		<span class="tag-links">		
+			
+                <a href="http://wuzhonglin.link/tags/aerospike/index.html" rel="tag">aerospike</a>
+            
+		</span>
+	</footer>
+</article> 
+
+			
+		
+		</div>
+
+	</div>
+	<div id="secondary">
+
+	
+
+	<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
+
+		<script type="text/javascript">
+    function site_search(obj) {
+    	var host = window.location.host;
+        obj.q.value = "site:" + host + " " + obj.ss_q.value;
+    }
+</script>
+
+<aside id="search-3" class="widget widget_search">
+	<form role="search" class="search-form" action="//www.google.com/search" method="get" onSubmit="site_search(this)">
+
+	<input name="q" type="hidden" />
+	    <label>
+	        <span class="screen-reader-text">Search for:</span>
+	        <input name="ss_q" type="text" placeholder="Search ..." class="search-field" />
+	    </label>
+	    <input type="submit" value="Search" class="search-submit" />
+	</form>
+</aside>
+
+		<aside id="recent-posts-3" class="widget widget_recent_entries">
+
+	
+	<h1 class="widget-title">Recent Posts</h1>
+		<ul>
+			
+		</ul>
+	
+</aside>
+
+		<aside id="categories-3" class="widget widget_categories">
+	
+	<h1 class="widget-title">Categories</h1>
+
+	<ul>
+		
+		
+		
+		<li class="cat-item">
+			<a href="http://wuzhonglin.link/categories/technology/index.html">Technology</a>
+		</li>
+
+		
+
+	</ul>
+
+</aside>
+
+	</div>
+
+</div>
+
+</div>
+
+		</div>
+
+		<footer id="colophon" class="site-footer" role="contentinfo">
+
+			<div class="site-info">
+				<a href="http://gohugo.io">Proudly powered by Hugo</a>
+			</div>
+		</footer>
+	</div>
+
+	<script type='text/javascript' src='http://wuzhonglin.link/js/functions.js'></script>
+</body>
+</html>

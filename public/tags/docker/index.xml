@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docker on 呉さんの諸々</title>
-    <link>http://wuzhonglin.link/tags/docker/index.xml</link>
+    <link>http://wuzhonglin.link/tags/docker.xml</link>
     <description>Recent content in Docker on 呉さんの諸々</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
-    <atom:link href="http://wuzhonglin.link/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://wuzhonglin.link/tags/docker.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>dockerについてのメモ</title>
-      <link>http://wuzhonglin.link/post/docker_memo/</link>
+      <link>http://wuzhonglin.link/post/docker_memo.html</link>
       <pubDate>Fri, 28 Apr 2017 14:15:05 +0900</pubDate>
       
-      <guid>http://wuzhonglin.link/post/docker_memo/</guid>
+      <guid>http://wuzhonglin.link/post/docker_memo.html</guid>
       <description>
 
 &lt;hr /&gt;

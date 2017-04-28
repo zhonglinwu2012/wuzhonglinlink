@@ -2,22 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://wuzhonglin.link/post/docker_memo/</loc>
+    <loc>http://wuzhonglin.link/post/docker_memo.html</loc>
     <lastmod>2017-04-28T14:15:05+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://wuzhonglin.link/post/aerospike_wo_tamesu3/</loc>
+    <loc>http://wuzhonglin.link/post/aerospike_wo_tamesu3.html</loc>
     <lastmod>2017-02-01T11:41:01+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://wuzhonglin.link/post/aerospike_wo_tamesu2/</loc>
+    <loc>http://wuzhonglin.link/post/aerospike_wo_tamesu2.html</loc>
     <lastmod>2017-02-01T11:39:44+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://wuzhonglin.link/post/aerospike_wo_tamesu1/</loc>
+    <loc>http://wuzhonglin.link/post/aerospike_wo_tamesu1.html</loc>
     <lastmod>2017-02-01T11:36:34+09:00</lastmod>
   </url>
   
@@ -27,32 +27,33 @@
   </url>
   
   <url>
-    <loc>http://wuzhonglin.link/categories/</loc>
+    <loc>http://wuzhonglin.link/categories.html</loc>
   </url>
   
   <url>
-    <loc>http://wuzhonglin.link/post/</loc>
-    <lastmod>2017-04-28T14:15:05+09:00</lastmod>
+    <loc>http://wuzhonglin.link/tags.html</loc>
   </url>
   
   <url>
-    <loc>http://wuzhonglin.link/tags/</loc>
-  </url>
-  
-  <url>
-    <loc>http://wuzhonglin.link/tags/aerospike/</loc>
+    <loc>http://wuzhonglin.link/tags/aerospike.html</loc>
     <lastmod>2017-02-01T11:41:01+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://wuzhonglin.link/tags/docker/</loc>
+    <loc>http://wuzhonglin.link/tags/docker.html</loc>
     <lastmod>2017-04-28T14:15:05+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://wuzhonglin.link/categories/technology/</loc>
+    <loc>http://wuzhonglin.link/post.html</loc>
+    <lastmod>2017-04-28T14:15:05+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://wuzhonglin.link/categories/technology.html</loc>
     <lastmod>2017-04-28T14:15:05+09:00</lastmod>
     <priority>0</priority>
   </url>

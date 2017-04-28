@@ -10,6 +10,7 @@ hasCJKLanguage = true
 themesDir = "themes"
 staticDir = "static"
 theme = "twentyfourteen"
+uglyurls = true
 
 [taxonomies]
   category = "categories"
