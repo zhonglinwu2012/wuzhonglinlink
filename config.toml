@@ -1,3 +1,20 @@
 languageCode = "ja-JP"
 title = "呉さんの諸々"
 baseURL = "http://wuzhonglin.link/"
+contentDir = "content"
+layoutDir = "layouts"
+publishDir = "public"
+buildDrafts = false
+canonifyURLs = true
+hasCJKLanguage = true
+themesDir = "themes"
+staticDir = "static"
+theme = "twentyfourteen"
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[params]
+  description = "呉さんの諸々を記述したもの"
+  author = "wu zhonglin"
