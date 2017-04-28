@@ -5,12 +5,13 @@ contentDir = "content"
 layoutDir = "layouts"
 publishDir = "public"
 buildDrafts = false
-canonifyURLs = false
+canonifyURLs = true
 hasCJKLanguage = true
 themesDir = "themes"
 staticDir = "static"
 theme = "twentyfourteen"
-uglyurls = true
+uglyurls = false
+relativeURLs = true
 
 [taxonomies]
   category = "categories"

@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on 呉さんの諸々</title>
-    <link>http://wuzhonglin.link/post.xml</link>
+    <link>http://wuzhonglin.link/post/index.xml</link>
     <description>Recent content in Posts on 呉さんの諸々</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-JP</language>
     <lastBuildDate>Fri, 28 Apr 2017 14:15:05 +0900</lastBuildDate>
-    <atom:link href="http://wuzhonglin.link/post.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://wuzhonglin.link/post/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>dockerについてのメモ</title>
-      <link>http://wuzhonglin.link/post/docker_memo.html</link>
+      <link>http://wuzhonglin.link/post/docker_memo/</link>
       <pubDate>Fri, 28 Apr 2017 14:15:05 +0900</pubDate>
       
-      <guid>http://wuzhonglin.link/post/docker_memo.html</guid>
+      <guid>http://wuzhonglin.link/post/docker_memo/</guid>
       <description>
 
 &lt;hr /&gt;
@@ -66,10 +66,10 @@ docker_clean_images
     
     <item>
       <title>aerospikeを試す（その３）</title>
-      <link>http://wuzhonglin.link/post/aerospike_wo_tamesu3.html</link>
+      <link>http://wuzhonglin.link/post/aerospike_wo_tamesu3/</link>
       <pubDate>Wed, 01 Feb 2017 11:41:01 +0900</pubDate>
       
-      <guid>http://wuzhonglin.link/post/aerospike_wo_tamesu3.html</guid>
+      <guid>http://wuzhonglin.link/post/aerospike_wo_tamesu3/</guid>
       <description>
 
 &lt;hr /&gt;
@@ -256,10 +256,10 @@ end
     
     <item>
       <title>aerospikeを試す（その２）</title>
-      <link>http://wuzhonglin.link/post/aerospike_wo_tamesu2.html</link>
+      <link>http://wuzhonglin.link/post/aerospike_wo_tamesu2/</link>
       <pubDate>Wed, 01 Feb 2017 11:39:44 +0900</pubDate>
       
-      <guid>http://wuzhonglin.link/post/aerospike_wo_tamesu2.html</guid>
+      <guid>http://wuzhonglin.link/post/aerospike_wo_tamesu2/</guid>
       <description>
 
 &lt;hr /&gt;
@@ -410,10 +410,10 @@ client.close
     
     <item>
       <title>aerospikeを試す（その１）</title>
-      <link>http://wuzhonglin.link/post/aerospike_wo_tamesu1.html</link>
+      <link>http://wuzhonglin.link/post/aerospike_wo_tamesu1/</link>
       <pubDate>Wed, 01 Feb 2017 11:36:34 +0900</pubDate>
       
-      <guid>http://wuzhonglin.link/post/aerospike_wo_tamesu1.html</guid>
+      <guid>http://wuzhonglin.link/post/aerospike_wo_tamesu1/</guid>
       <description>
 
 &lt;hr /&gt;
