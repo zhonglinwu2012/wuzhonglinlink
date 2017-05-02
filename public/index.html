@@ -1,860 +1,277 @@
 <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="pinterest" content="nopin">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="theme-color" content="#263238">
 
-<html lang="ja-JP">
-<head>
-	<meta name="generator" content="Hugo 0.19" />
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width">
-	<title>呉さんの諸々</title>
-	<link rel="profile" href="http://gmpg.org/xfn/11">
-	<!--[if lt IE 9]>
-	<script src="http://wuzhonglin.link/js/html5.js"></script>
-	<![endif]-->
+<meta name="generator" content="Hugo 0.21-DEV" />
+
+<link rel="apple-touch-icon" href="http://wuzhonglin.link/images/logo.png">
+
+
+<link rel="canonical" href="http://wuzhonglin.link/">
+
+
     
-    <link href="http://wuzhonglin.link/index.xml" rel="alternate" type="application/rss+xml" title="呉さんの諸々" />
-
-    <link rel='stylesheet' id='twentyfourteen-lato-css'  href='//fonts.googleapis.com/css?family=Lato%3A300%2C400%2C700%2C900%2C300italic%2C400italic%2C700italic&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
-
-    <link rel='stylesheet' id='genericons-css' href='http://wuzhonglin.link/genericons/genericons.css' type='text/css' media='all' />
-	<link rel='stylesheet' id='twentyfourteen-style-css' href='http://wuzhonglin.link/css/style.css' type='text/css' media='all' />
-	
-	<script type='text/javascript' src='http://wuzhonglin.link/js/jquery/jquery.js'></script>
-	<script type='text/javascript' src='http://wuzhonglin.link/js/jquery/jquery-migrate.min.js'></script>
-	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
-</head>
-
-<body class="home blog masthead-fixed list-view full-width grid">
-<div id="page" class="hfeed site">
-	<header id="masthead" class="site-header" role="banner">
-		<div class="header-main">
-			<h1 class="site-title"><a href="http://wuzhonglin.link/index.html" rel="home">呉さんの諸々</a></h1>
-
-			<div class="search-toggle">
-				<a href="#search-container" class="screen-reader-text">Search</a>
-			</div>
-
-			<nav id="primary-navigation" class="site-navigation primary-navigation" role="navigation">
-				<button class="menu-toggle">Primary Menu</button>
-				<a class="screen-reader-text skip-link" href="#content">Skip to content</a>
-				<div class="nav-menu">
-					<ul>
-						
-					</ul>
-				</div>
-			</nav>
-		</div>
-
-		<div id="search-container" class="search-box-wrapper hide">
-			<div class="search-box">
-                <script type="text/javascript">
-    function site_search(obj) {
-    	var host = window.location.host;
-        obj.q.value = "site:" + host + " " + obj.ss_q.value;
-    }
-</script>
-
-<aside id="search-3" class="widget widget_search">
-	<form role="search" class="search-form" action="//www.google.com/search" method="get" onSubmit="site_search(this)">
-
-	<input name="q" type="hidden" />
-	    <label>
-	        <span class="screen-reader-text">Search for:</span>
-	        <input name="ss_q" type="text" placeholder="Search ..." class="search-field" />
-	    </label>
-	    <input type="submit" value="Search" class="search-submit" />
-	</form>
-</aside>
-			</div>
-		</div>
-	</header>
-
-	<div id="main" class="site-main">
-
-
-<div id="main-content" class="main-content">
-
-	<div id="primary" class="content-area">
-		<div id="content" class="site-content" role="main">
-
-			
-				<article class="post type-post status-publish format-standard hentry">
-
-	
-	<header class="entry-header">
-
-	
-
-		<div class="entry-meta">
-			<span class="cat-links">
-                
-                <a href="http://wuzhonglin.link/categories/technology/index.html" rel="category">technology</a>
-                
-			</span>
-		</div>
-
-		<h1 class="entry-title">dockerについてのメモ</h1>
-
-		<div class="entry-meta">
-			<span class="entry-date">
-				<a href="http://wuzhonglin.link/post/docker_memo//index.html" rel="bookmark">
-					<time class="entry-date" datetime="2017-04-28 14:15:05 &#43;0900 JST">
-						April 28
-					</time>
-				</a>
-			</span>
-		</div>
-
-	</header>
-	
-	<div class="entry-content">
-		
-
-<hr />
-
-<h1 id="dockerについてのメモ">dockerについてのメモ</h1>
-
-<hr />
-
-<h2 id="dockerのイメージ作成">dockerのイメージ作成</h2>
-
-<pre><code>docker build --rm -q -f Dockerfile -t my-docker .
-</code></pre>
-
-<h2 id="dockerのイメージ一覧">dockerのイメージ一覧</h2>
-
-<pre><code>docker images
-</code></pre>
-
-<h2 id="docker起動">docker起動</h2>
-
-<pre><code>docker run -it &lt;image id&gt; /bin/bash
-</code></pre>
-
-<h2 id="起動しているdockerに接続">起動しているdockerに接続</h2>
-
-<pre><code>docker exec -it &lt;container id&gt; /bin/bash
-</code></pre>
-
-<h2 id="dockerのイメージ削除">dockerのイメージ削除</h2>
-
-<pre><code>docker rmi &lt;image id&gt;
-</code></pre>
-
-<h2 id="dockerのコンテナー削除">dockerのコンテナー削除</h2>
-
-<pre><code>docker rm &lt;CONTAINER ID&gt;
-</code></pre>
-
-<h2 id="ラベルがついていないdockerのイメージを削除">ラベルがついていないdockerのイメージを削除</h2>
-
-<pre><code>alias docker_clean_images='docker rmi $(docker images -a --filter=dangling=true -q)'
-alias docker_clean_ps='docker rm $(docker ps --filter=status=exited --filter=status=created -q)'
-docker kill $(docker ps -q)
-docker_clean_ps
-docker_clean_images
-</code></pre>
-
-	</div>
-
-	<footer class="entry-meta">
-		<span class="tag-links">		
-			
-                <a href="http://wuzhonglin.link/tags/docker/index.html" rel="tag">docker</a>
-            
-		</span>
-	</footer>
-</article> 
-			
-				<article class="post type-post status-publish format-standard hentry">
-
-	
-	<header class="entry-header">
-
-	
-
-		<div class="entry-meta">
-			<span class="cat-links">
-                
-                <a href="http://wuzhonglin.link/categories/technology/index.html" rel="category">technology</a>
-                
-			</span>
-		</div>
-
-		<h1 class="entry-title">aerospikeを試す（その３）</h1>
-
-		<div class="entry-meta">
-			<span class="entry-date">
-				<a href="http://wuzhonglin.link/post/aerospike_wo_tamesu3//index.html" rel="bookmark">
-					<time class="entry-date" datetime="2017-02-01 11:41:01 &#43;0900 JST">
-						February 1
-					</time>
-				</a>
-			</span>
-		</div>
-
-	</header>
-	
-	<div class="entry-content">
-		
-
-<hr />
-
-<h1 id="logとaerospikeのテスト">LOGとaerospikeのテスト</h1>
-
-<hr />
-
-<h3 id="fluentdとaerospikeを組みあわせる">fluentdとaerospikeを組みあわせる</h3>
-
-<p><em>fluentd</em> のログデータをaerospikeに投入する場合を考える。</p>
-
-<h4 id="fluentdのinstallと設定">fluentdのinstallと設定</h4>
-
-<p>以下のリンクを参照
-<a href="http://docs.fluentd.org/articles/install-by-rpm#step-1-install-from-rpm-repository">http://docs.fluentd.org/articles/install-by-rpm#step-1-install-from-rpm-repository</a></p>
-
-<pre><code class="language-bash">curl -L https://toolbelt.treasuredata.com/sh/install-redhat-td-agent2.sh | sh
-</code></pre>
-
-<h4 id="fluent-plugin-aerospikeのinstall">fluent-plugin-aerospikeのinstall</h4>
-
-<pre><code>sudo /usr/lib64/fluent/ruby/bin/gem install fluent-plugin-aerospike
-</code></pre>
-
-<h4 id="設定ファイルを編集">設定ファイルを編集</h4>
-
-<p>設定ファイルはdefaultは/etc/td-agent以下にある。</p>
-
-<pre><code class="language-bash">[root@localhost td-agent]# pwd
-/etc/td-agent
-[root@localhost td-agent]# ls -1
-logrotate.d
-prelink.conf.d
-td-agent-activities.conf
-td-agent.conf
-td-agent.conf.tmpl
-</code></pre>
-
-<p>以下は設定の一例</p>
-
-<pre><code>[root@localhost td-agent]# cat td-agent.conf
-
-&lt;source&gt;
-  type multiprocess
-  &lt;process&gt;
-    cmdline -c /etc/td-agent/td-agent-activities.conf --log /var/log/td-agent/td-agent-activities.log
-    sleep_before_start 1s
-    sleep_before_shutdown 5s
-  &lt;/process&gt;
-&lt;/source&gt;
-
-[root@localhost td-agent]# cat td-agent-activities.conf
-
-&lt;source&gt;
-  type tail
-  path /var/www/app/shared/log/act.log
-  pos_file /var/log/td-agent/app-log_activities.log.pos
-  tag activities
-  format json
-&lt;/source&gt;
-&lt;match activities&gt;
-  type rewrite_tag_filter
-  rewriterule1 account ^(.*)$ activities.$1
-&lt;/match&gt;
-&lt;match activities.*&gt;
-  type aerospike
-  address 127.0.0.1:5000
-  namespace bar
-  set acti
-&lt;/match&gt;
-</code></pre>
-
-<p>/var/www/app/shared/log/act.logは以下のようなログ形式とする</p>
-
-<pre><code>{&quot;ts&quot;:1435025600603,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;detail&quot;,&quot;act_params&quot;:[{&quot;commodityCode&quot;:&quot;CC55463&quot;}]}
-{&quot;ts&quot;:1435025679302,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;detail&quot;,&quot;act_params&quot;:[{&quot;commodityCode&quot;:&quot;CC55463&quot;}]}
-{&quot;ts&quot;:1435025694660,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;detail&quot;,&quot;act_params&quot;:[{&quot;commodityCode&quot;:&quot;CC55463&quot;}]}
-{&quot;ts&quot;:1435025729249,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;detail&quot;,&quot;act_params&quot;:[{&quot;commodityCode&quot;:&quot;CC55463&quot;}]}
-{&quot;ts&quot;:1435025731348,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;detail&quot;,&quot;act_params&quot;:[{&quot;commodityCode&quot;:&quot;CC55463&quot;}]}
-{&quot;ts&quot;:1435025750194,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;detail&quot;,&quot;act_params&quot;:[{&quot;commodityCode&quot;:&quot;CC55463&quot;}]}
-{&quot;ts&quot;:1435025771624,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;detail&quot;,&quot;act_params&quot;:[{&quot;commodityCode&quot;:&quot;CC55463&quot;}]}
-{&quot;ts&quot;:1435025775009,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;detail&quot;,&quot;act_params&quot;:[{&quot;commodityCode&quot;:&quot;CC55463&quot;}]}
-{&quot;ts&quot;:1435025777724,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;detail&quot;,&quot;act_params&quot;:[{&quot;commodityCode&quot;:&quot;CC55463&quot;}]}
-{&quot;ts&quot;:1435025778852,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;detail&quot;,&quot;act_params&quot;:[{&quot;commodityCode&quot;:&quot;CC55463&quot;}]}
-{&quot;ts&quot;:1435025780438,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;detail&quot;,&quot;act_params&quot;:[{&quot;commodityCode&quot;:&quot;CC55463&quot;}]}
-{&quot;ts&quot;:1435025856827,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;detail&quot;,&quot;act_params&quot;:[{&quot;commodityCode&quot;:&quot;CC55463&quot;}]}
-{&quot;ts&quot;:1435025880810,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;detail&quot;,&quot;act_params&quot;:[{&quot;commodityCode&quot;:&quot;CC55463&quot;}]}
-{&quot;ts&quot;:1435025982539,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;detail&quot;,&quot;act_params&quot;:[{&quot;commodityCode&quot;:&quot;CC55463&quot;}]}
-{&quot;ts&quot;:1435048801611,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;detail&quot;,&quot;act_params&quot;:[{&quot;commodityCode&quot;:&quot;CC55463&quot;}]}
-{&quot;ts&quot;:1435060089216,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;detail&quot;,&quot;act_params&quot;:[{&quot;commodityCode&quot;:&quot;CC55463&quot;}]}
-{&quot;ts&quot;:1435060218954,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;detail&quot;,&quot;act_params&quot;:[{&quot;commodityCode&quot;:&quot;CC55463&quot;}]}
-{&quot;ts&quot;:1446781223481,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;bdr_view&quot;,&quot;act_params&quot;:[{&quot;r_id&quot;:&quot;64&quot;}]}
-{&quot;ts&quot;:1446781224465,&quot;account&quot;:&quot;ac_123_55&quot;,&quot;vt&quot;:&quot;2e7RHi.kSTLPuk&quot;,&quot;cid&quot;:&quot;12345678&quot;,&quot;ctype&quot;:&quot;1&quot;,&quot;act_type&quot;:&quot;bdr_view&quot;,&quot;act_params&quot;:[{&quot;r_id&quot;:&quot;64&quot;}]}
-</code></pre>
-
-<h4 id="fluentdの動作確認">fluentdの動作確認</h4>
-
-<p>fluentdの起動と終了はそれぞれ以下のコマンドで実現する</p>
-
-<pre><code>/etc/init.d/td-agent start
-</code></pre>
-
-<pre><code>/etc/init.d/td-agent stop
-</code></pre>
-
-<p>fluentdを起動するしてから、ログが変更になると、aerospikeにレコードが書き込まれる</p>
-
-<pre><code class="language-sql">aql&gt; select * from bar.acti
-+---------------------------------------------------+---------------+-------------+------------------+------------+-------+------------+-------------------------------+
-| key                                               | ts            | account     | vt               | cid        | ctype | act_type   | act_params                    |
-+---------------------------------------------------+---------------+-------------+------------------+------------+-------+------------+-------------------------------+
-| &quot;1453689499-3381d84f-4795-4b2d-a0f9-636e78e2a049&quot; | 1435025982539 | &quot;ac_123_55&quot; | &quot;2e7RHi.kSTLPuk&quot; | &quot;12345678&quot; | &quot;1&quot;   | &quot;detail&quot;   | [{&quot;commodityCode&quot;:&quot;CC55463&quot;}] |
-| &quot;1453689441-52c594e5-36af-42be-843c-baf8f40864e0&quot; | 1435025694660 | &quot;ac_123_55&quot; | &quot;2e7RHi.kSTLPuk&quot; | &quot;12345678&quot; | &quot;1&quot;   | &quot;detail&quot;   | [{&quot;commodityCode&quot;:&quot;CC55463&quot;}] |
-| &quot;1453689441-3005ed82-162f-4d9f-9ea8-e7fe85ab41e4&quot; | 1447070740725 | &quot;ac_123_55&quot; | &quot;2e7RHi.kSTLPuk&quot; | &quot;12345678&quot; | &quot;1&quot;   | &quot;bdr_view&quot; | [{&quot;bdr_r_id&quot;:&quot;64&quot;}]           |
-| &quot;1453689441-22193e19-5959-4ad1-aa75-42b02eae6140&quot; | 1435025982539 | &quot;ac_123_55&quot; | &quot;2e7RHi.kSTLPuk&quot; | &quot;12345678&quot; | &quot;1&quot;   | &quot;detail&quot;   | [{&quot;commodityCode&quot;:&quot;CC55463&quot;}] |
-| &quot;1453689499-3cb6eaae-ac2c-4a3b-8dd3-169981fbac36&quot; | 1435025856827 | &quot;ac_123_55&quot; | &quot;2e7RHi.kSTLPuk&quot; | &quot;12345678&quot; | &quot;1&quot;   | &quot;detail&quot;   | [{&quot;commodityCode&quot;:&quot;CC55463&quot;}] |
-| &quot;1453689499-f1451be5-6176-4184-bf6b-b7e03e414bea&quot; | 1435025775009 | &quot;ac_123_55&quot; | &quot;2e7RHi.kSTLPuk&quot; | &quot;12345678&quot; | &quot;1&quot;   | &quot;detail&quot;   | [{&quot;commodityCode&quot;:&quot;CC55463&quot;}] |
-...
-</code></pre>
-
-<h4 id="ついでにfluentdから別のhttp-serverにpostし直すことも試した">ついでにfluentdから別のhttp serverにpostし直すことも試した。</h4>
-
-<p>gemのinstall</p>
-
-<pre><code>/usr/lib64/fluent/ruby/bin/gem install fluent-plugin-out-http
-</code></pre>
-
-<p>設定ファイル td-agent-activities.conf:</p>
-
-<pre><code>&lt;source&gt;
-  type tail
-  path /var/www/mario-app/shared/log/act.log
-  pos_file /var/log/td-agent/mario-app-log_activities.log.pos
-  tag activities
-  format json
-&lt;/source&gt;
-&lt;match *&gt;
-  type http
-  endpoint_url http://127.0.0.1:4567/
-  http_method get
-  raise_on_error false
-&lt;/match&gt;
-</code></pre>
-
-<p>受け取るhttp serverの実装はとにかく手間を省くため、sinatraで実装</p>
-
-<pre><code>require 'sinatra'
-
-get &quot;/&quot; do
-  File.open(&quot;log&quot;,&quot;a&quot;) do |f|
-    f.puts(params)
-  end
-  params.to_s
-end
-
-post &quot;/&quot; do
-  File.open(&quot;log&quot;,&quot;a&quot;) do |f|
-    f.puts(params)
-  end
-  params.to_s
-end
-</code></pre>
-
-<p>http serverを起動</p>
-
-<pre><code>[vagrant@localhost aerospike]$ ruby myapp.rb
-[2016-01-25 06:06:29] INFO  WEBrick 1.3.1
-[2016-01-25 06:06:29] INFO  ruby 2.1.2 (2014-05-08) [x86_64-linux]
-== Sinatra (v1.4.6) has taken the stage on 4567 for development with backup from WEBrick
-[2016-01-25 06:06:29] INFO  WEBrick::HTTPServer#start: pid=8359 port=4567
-</code></pre>
-
-<p>前記のact.logを変更すると、logファイルが出力される。
-結果のlogの中身の例</p>
-
-<pre><code class="language-javascript">{&quot;ts&quot;=&gt;&quot;1435025600603&quot;, &quot;account&quot;=&gt;&quot;ac_123_55&quot;, &quot;vt&quot;=&gt;&quot;2e7RHi.kSTLPuk&quot;, &quot;cid&quot;=&gt;&quot;12345678&quot;, &quot;ctype&quot;=&gt;&quot;1&quot;, &quot;act_type&quot;=&gt;&quot;detail&quot;, &quot;act_params&quot;=&gt;&quot;{\&quot;commodityCode\&quot;=&gt;\&quot;CC55463\&quot;}&quot;}
-{&quot;ts&quot;=&gt;&quot;1435025679302&quot;, &quot;account&quot;=&gt;&quot;ac_123_55&quot;, &quot;vt&quot;=&gt;&quot;2e7RHi.kSTLPuk&quot;, &quot;cid&quot;=&gt;&quot;12345678&quot;, &quot;ctype&quot;=&gt;&quot;1&quot;, &quot;act_type&quot;=&gt;&quot;detail&quot;, &quot;act_params&quot;=&gt;&quot;{\&quot;commodityCode\&quot;=&gt;\&quot;CC55464\&quot;}&quot;}
-{&quot;ts&quot;=&gt;&quot;1435025679412&quot;, &quot;account&quot;=&gt;&quot;ac_123_55&quot;, &quot;vt&quot;=&gt;&quot;2e7RHi.kSTLPuk&quot;, &quot;cid&quot;=&gt;&quot;12345678&quot;, &quot;ctype&quot;=&gt;&quot;1&quot;, &quot;act_type&quot;=&gt;&quot;detail&quot;, &quot;act_params&quot;=&gt;&quot;{\&quot;commodityCode\&quot;=&gt;\&quot;NE663BU102XX\&quot;}&quot;}
-...
-</code></pre>
-
-	</div>
-
-	<footer class="entry-meta">
-		<span class="tag-links">		
-			
-                <a href="http://wuzhonglin.link/tags/aerospike/index.html" rel="tag">aerospike</a>
-            
-		</span>
-	</footer>
-</article> 
-			
-				<article class="post type-post status-publish format-standard hentry">
-
-	
-	<header class="entry-header">
-
-	
-
-		<div class="entry-meta">
-			<span class="cat-links">
-                
-                <a href="http://wuzhonglin.link/categories/technology/index.html" rel="category">technology</a>
-                
-			</span>
-		</div>
-
-		<h1 class="entry-title">aerospikeを試す（その２）</h1>
-
-		<div class="entry-meta">
-			<span class="entry-date">
-				<a href="http://wuzhonglin.link/post/aerospike_wo_tamesu2//index.html" rel="bookmark">
-					<time class="entry-date" datetime="2017-02-01 11:39:44 &#43;0900 JST">
-						February 1
-					</time>
-				</a>
-			</span>
-		</div>
-
-	</header>
-	
-	<div class="entry-content">
-		
-
-<hr />
-
-<h1 id="rubyによるアクセス">rubyによるアクセス</h1>
-
-<hr />
-
-<p>rubyでaerospikeにアクセスしてみる。</p>
-
-<h4 id="install">install</h4>
-
-<p>まずgemをインストール</p>
-
-<pre><code>gem install aerospike
-</code></pre>
-
-<h4 id="レコード作成-ruby-code">レコード作成(ruby code)</h4>
-
-<pre><code class="language-ruby">require 'rubygems'
-require 'aerospike'
-include Aerospike
-client = Client.new('127.0.0.1', 5000)
-
-key = Key.new('bar', 'user', '0000000000609787')
-bin1 = Bin.new('customer_code','0000000000609787')
-bin2 = Bin.new('user_no',1)
-bin3 = Bin.new('status','ok')
-
-client.put(key,[bin1,bin2,bin3])
-client.close
-</code></pre>
-
-<p>aqlで確認</p>
-
-<pre><code class="language-sql">aql&gt; select * from bar.user
-+--------------------+--------------------+---------+--------+
-| key                | customer_code      | user_no | status |
-+--------------------+--------------------+---------+--------+
-| &quot;0000000000609787&quot; | &quot;0000000000609787&quot; | 1       | &quot;ok&quot;   |
-+--------------------+--------------------+---------+--------+
-1 row in set (0.038 secs)
-</code></pre>
-
-<h4 id="rubyで読む">rubyで読む</h4>
-
-<pre><code class="language-ruby">require 'rubygems'
-require 'aerospike'
-include Aerospike
-client = Client.new('127.0.0.1', 5000)
-
-key = Key.new('bar', 'user', '0000000000609787')
-record = client.get(key)
-puts record.bins
-
-puts client.exists(key)
-client.close
-</code></pre>
-
-<p>実行結果</p>
-
-<pre><code class="language-javascript">{&quot;customer_code&quot;=&gt;&quot;0000000000609787&quot;, &quot;user_no&quot;=&gt;1, &quot;status&quot;=&gt;&quot;ok&quot;}
-true
-</code></pre>
-
-<h4 id="レコードの削除">レコードの削除</h4>
-
-<pre><code class="language-ruby">require 'rubygems'
-require 'aerospike'
-include Aerospike
-client = Client.new('127.0.0.1', 5000)
-
-key = Key.new('bar', 'user', '0000000000609787')
-record = client.get(key)
-puts record.bins
-
-client.delete(key)
-puts client.exists(key)
-
-client.close
-</code></pre>
-
-<p>実行結果</p>
-
-<pre><code class="language-javascript">{&quot;customer_code&quot;=&gt;&quot;0000000000609787&quot;, &quot;user_no&quot;=&gt;1, &quot;status&quot;=&gt;&quot;ok&quot;}
-false
-</code></pre>
-
-<h4 id="データの書き換え">データの書き換え</h4>
-
-<pre><code class="language-ruby">require 'rubygems'
-require 'aerospike'
-include Aerospike
-client = Client.new('127.0.0.1', 5000)
-
-key = Key.new('bar', 'user', '0000000000609787')
-bin1 = Bin.new('customer_code','0000000000609787')
-bin2 = Bin.new('user_no',1)
-bin3 = Bin.new('status','ok')
-client.put(key,[bin1,bin2,bin3])
-
-bin4 = Bin.new('status','ng')
-client.put(key,[bin1,bin2,bin4])
-client.close
-</code></pre>
-
-<p>結果</p>
-
-<pre><code class="language-sql">aql&gt; select * from bar.user
-+--------------------+--------------------+---------+--------+
-| key                | customer_code      | user_no | status |
-+--------------------+--------------------+---------+--------+
-| &quot;0000000000609787&quot; | &quot;0000000000609787&quot; | 1       | &quot;ng&quot;   |
-+--------------------+--------------------+---------+--------+
-1 row in set (0.035 secs)
-</code></pre>
-
-<h4 id="jsonデータ形式で直接書きこむ">JSONデータ形式で直接書きこむ</h4>
-
-<pre><code class="language-ruby">require 'rubygems'
-require 'aerospike'
-include Aerospike
-client = Client.new('127.0.0.1', 5000)
-
-key = Key.new('bar', 'user', '0000000000609692')
-hm = {'customer_code'=&gt;'0000000000609692','user_no'=&gt;2,'status'=&gt;'ok'}
-
-client.put(key,hm)
-
-client.close
-</code></pre>
-
-<p>結果</p>
-
-<pre><code class="language-sql">aql&gt; select * from bar.user
-+--------------------+--------------------+---------+--------+
-| key                | customer_code      | user_no | status |
-+--------------------+--------------------+---------+--------+
-| &quot;0000000000609787&quot; | &quot;0000000000609787&quot; | 1       | &quot;ng&quot;   |
-| &quot;0000000000609692&quot; | &quot;0000000000609692&quot; | 2       | &quot;ok&quot;   |
-+--------------------+--------------------+---------+--------+
-2 rows in set (0.038 secs)
-</code></pre>
-
-<p>次回*fluentd*と*aerospike*を試す</p>
-
-	</div>
-
-	<footer class="entry-meta">
-		<span class="tag-links">		
-			
-                <a href="http://wuzhonglin.link/tags/aerospike/index.html" rel="tag">aerospike</a>
-            
-		</span>
-	</footer>
-</article> 
-			
-				<article class="post type-post status-publish format-standard hentry">
-
-	
-	<header class="entry-header">
-
-	
-
-		<div class="entry-meta">
-			<span class="cat-links">
-                
-                <a href="http://wuzhonglin.link/categories/technology/index.html" rel="category">technology</a>
-                
-			</span>
-		</div>
-
-		<h1 class="entry-title">aerospikeを試す（その１）</h1>
-
-		<div class="entry-meta">
-			<span class="entry-date">
-				<a href="http://wuzhonglin.link/post/aerospike_wo_tamesu1//index.html" rel="bookmark">
-					<time class="entry-date" datetime="2017-02-01 11:36:34 &#43;0900 JST">
-						February 1
-					</time>
-				</a>
-			</span>
-		</div>
-
-	</header>
-	
-	<div class="entry-content">
-		
-
-<hr />
-
-<h1 id="aerospikeのinstall">aerospikeのinstall</h1>
-
-<hr />
-
-<h2 id="install">install</h2>
-
-<p><a href="http://www.aerospike.com/">http://www.aerospike.com/</a> を開く</p>
-
-<p>Try Communication Edition をクリック</p>
-
-<p>Set up an Aerospike Serverをクリック</p>
-
-<p>Linuxを選択してクリック</p>
-
-<p>Continueをクリック</p>
-
-<p>Choose Your Linuxをクリック</p>
-
-<p>Install On Redhatを選択</p>
-
-<p>画面の指示通りを実行する</p>
-
-<p>注意：aerospikeは3000と3001を使うが、開発環境ではport衝突する場合、それを修正</p>
-
-<pre><code>sudo vi /etc/aerospike/aerospike.conf
-</code></pre>
-
-<p>その中のport 3000とport 3001を別の番号に書き換える、例えば5000,5001</p>
-
-<h2 id="開発ツール関係">開発ツール関係</h2>
-
-<p>コマンドラインではaqlとascliがあります、
-それぞれsqlライクとcliのコマンドです</p>
-
-<p>ruby用はgem install aerospikeでgem installできる
-<a href="https://github.com/aerospike/aerospike-client-ruby">https://github.com/aerospike/aerospike-client-ruby</a>
-↑のexamples以下に例があります</p>
-
-<p>embulk のinstallについては <a href="https://github.com/embulk/embulk#linux--mac--bsd">https://github.com/embulk/embulk#linux--mac--bsd</a> を参照</p>
-
-<p>aerospikeのpluginは embulk gem install embulk-output-aerospike でinstall</p>
-
-<p><a href="https://github.com/tkrs/embulk-output-aerospike">https://github.com/tkrs/embulk-output-aerospike</a></p>
-
-<p>パラメータなどは↑を参照</p>
-
-<h2 id="embulkでデータロード">embulkでデータロード</h2>
-
-<p>mysqlのDBからデータをaerospikeにロードしてみる。
-一応成功しているように見えるが、結果がおかしい、全部最後のデータになってしまいます。</p>
-
-<p>DBの内容：</p>
-
-<table>
-<thead>
-<tr>
-<th>user_id</th>
-<th>user_no</th>
-<th>customer_status</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>0000000000609692</td>
-<td>1</td>
-<td>ng</td>
-</tr>
-
-<tr>
-<td>0000000000609777</td>
-<td>2</td>
-<td>ng</td>
-</tr>
-
-<tr>
-<td>0000000000609787</td>
-<td>3</td>
-<td>ok</td>
-</tr>
-</tbody>
-</table>
-
-<p>config.yml:</p>
-
-<pre><code class="language-yaml">in:
-  type: mysql
-  host: localhost
-  user: root
-  password: root
-  database: test
-  query: &quot;select user_id, user_no, customer_status as status from users limit 3&quot;
-out:
-  type: aerospike
-  hosts:
-  - {name: '127.0.0.1', port: 5000}
-  command: put
-  namespace: bar
-  set_name: users
-  key_name: user_id
-  client_policy:
-    max_retries: 3
-  write_policy:
-    generation: 0
-    expiration: 64000
-    send_key: true
-</code></pre>
-
-<p>embulkを実行する</p>
-
-<pre><code>embulk run config.yml
-</code></pre>
-
-<p>aqlで結果を確認すると</p>
-
-<table>
-<thead>
-<tr>
-<th>user_id</th>
-<th>user_no</th>
-<th>customer_status</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>0000000000609692</td>
-<td>3</td>
-<td>ok</td>
-</tr>
-
-<tr>
-<td>0000000000609777</td>
-<td>3</td>
-<td>ok</td>
-</tr>
-
-<tr>
-<td>0000000000609787</td>
-<td>3</td>
-<td>ok</td>
-</tr>
-</tbody>
-</table>
-
-<p>次回 rubyとaerospikeで試す</p>
-
-	</div>
-
-	<footer class="entry-meta">
-		<span class="tag-links">		
-			
-                <a href="http://wuzhonglin.link/tags/aerospike/index.html" rel="tag">aerospike</a>
-            
-		</span>
-	</footer>
-</article> 
-			
-		
-		</div>
-	</div>
-	<div id="secondary">
-
-	
-
-	<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
-
-		<script type="text/javascript">
-    function site_search(obj) {
-    	var host = window.location.host;
-        obj.q.value = "site:" + host + " " + obj.ss_q.value;
-    }
-</script>
-
-<aside id="search-3" class="widget widget_search">
-	<form role="search" class="search-form" action="//www.google.com/search" method="get" onSubmit="site_search(this)">
-
-	<input name="q" type="hidden" />
-	    <label>
-	        <span class="screen-reader-text">Search for:</span>
-	        <input name="ss_q" type="text" placeholder="Search ..." class="search-field" />
-	    </label>
-	    <input type="submit" value="Search" class="search-submit" />
-	</form>
-</aside>
-
-		<aside id="recent-posts-3" class="widget widget_recent_entries">
-
-	
-	<h1 class="widget-title">Recent Posts</h1>
-		<ul>
-			
-			<li>
-				<a href="http://wuzhonglin.link/post/docker_memo//index.html">dockerについてのメモ</a>
-			</li>
-			
-			<li>
-				<a href="http://wuzhonglin.link/post/aerospike_wo_tamesu3//index.html">aerospikeを試す（その３）</a>
-			</li>
-			
-			<li>
-				<a href="http://wuzhonglin.link/post/aerospike_wo_tamesu2//index.html">aerospikeを試す（その２）</a>
-			</li>
-			
-			<li>
-				<a href="http://wuzhonglin.link/post/aerospike_wo_tamesu1//index.html">aerospikeを試す（その１）</a>
-			</li>
-			
-		</ul>
-	
-</aside>
-
-		<aside id="categories-3" class="widget widget_categories">
-	
-	<h1 class="widget-title">Categories</h1>
-
-	<ul>
-		
-		
-		
-		<li class="cat-item">
-			<a href="http://wuzhonglin.link/categories/technology/index.html">Technology</a>
-		</li>
-
-		
-
-	</ul>
+    <link href="//fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <title>呉さんの諸々</title>
+    
+    <style>
+      html { font-size: 18px; background-color: rgba(236,239,241,.5);}@media (max-width: 768px) { html { font-size: 15px; }}body { color: #333; font-family: 'Roboto Slab','ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro',メイリオ,Meiryo,sans-serif; font-feature-settings : "palt"; font-size: inherit; line-height: 1rem; margin: 0; padding: 0;}h1, h2, h3, h4, h5 ,h6 { font-size: 1rem; font-weight: 700; line-height: 1rem; margin: 0;}hr { border: 0; border-top: 1px dashed #cfd8dc; margin: 1rem 0;}p { margin: 0; line-height: 1rem;}a { color: #2196f3; text-decoration: none; transition-duration: .3s;}ul, ol { margin: 0; padding: 0;}table { border-collapse: collapse;}th, td { font-size: .8rem; padding: .5rem;}tr { border-bottom: 1px dashed #ddd;}/* Layouts */main,aside { display: block;}main { padding: 1rem 0 3rem 0; }aside.h { padding: 3rem 0; }main.f,aside.f { background-color: #333; border-top: 2px dashed #fff; border-bottom: 2px dashed #fff;}.l-container { position: relative; max-width: 68rem; margin: 0 auto; padding: 0 1rem;}.l-container.thin { max-width: 44rem;}.l-header { background-color: #fff; box-shadow: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px rgba(63,63,68,.1), 0 1px 2px rgba(0,0,0,.05); padding: 1rem 0; text-align: center;}.l-footer { background-color: #fff; box-shadow: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px rgba(63,63,68,.1), 0 1px 2px rgba(0,0,0,.05); font-size: .6rem; font-weight: 700; padding: 1rem 0;}@media (max-width: 768px) { .l-sidebar { margin-top: 4rem; }}.mrow { margin: 0 -1rem; overflow: hidden;}.mcol { box-sizing: border-box; float: left; padding: 0 1rem;}.c6 { width: 50%; }.c4 { width: 33.26323833%; }.c8 { width: 66.66666%; }@media (max-width: 768px) { .mcol { width: 100%; float: none; }}.logo a { font-size: 1.4rem; line-height: 1.5rem; font-weight: 700; color: #333;}.articles { margin: -1rem 0; margin-bottom: 1rem;}.articles.sm { margin: -.5rem 0; margin-bottom: 0;}article { border-radius: 4px; overflow: hidden;}article.li { background-color: #fff; box-shadow: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px rgba(63,63,68,.1), 0 1px 2px rgba(0,0,0,.05); height: 20rem; overflow: hidden; margin: 1rem 0;}article.li > a { display: block; color: #333;}article.li .inner { padding: 1rem;}article.li .thumb { height: 8rem;}article.li .title { color: #333; font-size: 1.2rem; line-height: 1.5rem; margin-bottom: .5rem;}article.li .summary { font-size: .8rem; height: 6rem; overflow: hidden; margin-top: 1rem;}article.lism { background-color: #fff; box-shadow: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px rgba(63,63,68,.1), 0 1px 2px rgba(0,0,0,.05); margin: .5rem 0;}article.lism::after { content: ''; display: block; clear: both;}article.lism > a { display: block; color: #333;}article.lism .inner { display: table-cell; vertical-align: middle; height: 5rem; padding-left: .5rem;}article.lism .thumb { width: 5rem; height: 5rem; float: left;}article.lism .title { font-weight: 700; line-height: 1.25rem; margin-bottom: .25rem;}article.sn { background-color: #fff; box-shadow: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px rgba(63,63,68,.1), 0 1px 2px rgba(0,0,0,.05); margin-bottom: 1rem;}article.sn .thumb { height: 20rem;}@media (max-width: 768px) { article.sn .thumb { height: 10rem; }}article.sn > .article-header,article.sn > .article-body,article.sn .article-footer { padding: 2rem;}article.sn > .article-body { padding: 0 2rem;}@media (max-width: 768px) { article.sn > .article-header, article.sn > .article-body, article.sn .article-footer { padding: 1rem; } article.sn > .article-body { padding: 0 1rem; }}article.sn > .article-header .title { font-size: 1.8rem; line-height: 2rem; margin-bottom: .5rem;}@media (max-width: 768px) { article.sn > .article-header .title { font-size: 1.4rem; line-height: 1.5rem; }}article.sn > .article-header .facts { margin-bottom: 1rem;}article.sn > .article-body { margin-bottom: 1.5rem;}article.sn > .article-body h2 { border-bottom: .25rem solid #333; font-size: 1.2rem; line-height: 1.5rem; margin: 1.5rem 0; padding: .5rem 0;}article.sn > .article-body h3 { border-left: .5rem solid #333; line-height: 1.5rem; margin: 1.5rem 0; padding: .125rem .5rem;}article.sn > .article-body ul,article.sn > .article-body ol { margin: 1.5rem 0; padding-left: 1.5rem;}article.sn > .article-body li { padding-bottom: .5rem; line-height: 1.5rem;}article.sn > .article-body li:last-child { padding-bottom: 0;}article.sn > .article-body p { margin: 1rem 0; line-height: 1.5rem;}article.sn > .article-body strong,article.sn > .article-body em { font-style: normal; font-weight: 700;}article.sn > .article-body strong { box-shadow: 0 -.5rem 0 0 #ffc107 inset;}article.sn > .article-body em { color: #8bc34a;}article.sn > .article-body code,article.sn > .article-body pre { font-family: Menlo, Consolas, monospace; font-size: .7rem;}article.sn > .article-body pre { background-color: #333; color: #fff; line-height: 1rem; margin: 1.5rem -2rem; overflow: auto;}@media (max-width: 768px) { article.sn > .article-body pre { margin: 1.5rem -1rem; }}article.sn > .article-body pre > code { display: block; padding: 1rem 2rem;}@media (max-width: 768px) { article.sn > .article-body pre > code { padding: 1rem; }}article.sn > .article-body p code { background-color: #eceff1; color: #333; border-radius: 4px; margin: 0 .25rem; padding: .375rem; white-space: nowrap;}article.sn > .article-body blockquote { position: relative; border-left: .25rem solid #333; font-size: .8rem; padding: .125rem 1rem; margin: 1.5rem 0;}@media (max-width: 768px) { article.sn > .article-body blockquote { font-size: 1rem; }}article.sn > .article-body blockquote p { margin: .5rem 0; line-height: 1rem;}article.sn > .article-body figure { margin: 1.5rem 0;}article.sn > .article-body figure img,article.sn > .article-body figure amp-img { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); max-width: 100%;}article.sn > .article-body figcaption { color: #cfd8dc; font-size: .8rem; font-weight: 700; margin-top: .5rem;}.facts li { display: inline; font-size: .8rem; margin-right: 1rem;}.facts i { color: #cfd8dc; margin-right: .5em;}.facts.sm li { font-size: .7rem;}.sections.sidebar { margin: -1rem 0;}.sections.footer { margin: -1rem 0;}section.sidebar { margin: 2rem 0;}section.sidebar > header { font-size: .8rem; font-weight: 700; letter-spacing: 4px; text-align: center; margin: 1.5rem 0;}section.footer { margin: 1rem 0;}section.footer > header { font-size: .8rem; margin: .5rem 0;}section.footer > header::before { content: "- ";}section.footer > header a { font-weight: 700; color: #333; text-decoration: underline;}.terms { margin: -.25rem;}.terms li { display: inline-block;}.terms a { display: block; float: left; background-color: #333; border-radius: 4px; color: #fff; font-size: .7rem; margin: .25rem; padding: 0 .75rem; line-height: 1.75rem;}.paging { text-align: center; padding: 1rem 0;}.paging a { display: inline-block; background-color: #fff; box-shadow: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px rgba(63,63,68,.1), 0 1px 2px rgba(0,0,0,.05); border-radius: 4px; color: #333; padding: 0 1rem; line-height: 3rem;}.page-title { text-align: center; margin: 1rem 0;}.page-title::after { content: ''; display: block; border-bottom: .25rem solid #333; width: 3rem; margin: 1.5rem auto;}.page-title > .title { font-size: 1.2rem; line-height: 1.5rem;}/* Parts:breadcrumb */.crumb ol { text-overflow: ellipsis; color: #cfd8dc; white-space: nowrap; overflow: hidden;}.crumb li { display: inline; font-size: .8rem;}.crumb li::after { content: '›'; margin: 0 .25rem 0 .5rem;}.crumb li:last-child::after { content: '';}.crumb a { color: #cfd8dc;}.crumb i { margin-right: .5em;}.share { padding: 0;}.share a { display: inline-block; box-shadow: 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px rgba(63,63,68,.1), 0 1px 2px rgba(0,0,0,.05); min-width: 1rem; height: 2rem; border-radius: 4px; color: #333; font-size: .8rem; font-weight: 700; line-height: 2rem; text-align: center; padding: 0 .5rem;}.adj article.lism { margin-bottom: 1rem;}.adj header { font-weight: 700; font-size: .8rem;}.toc { padding: 0 2rem;}@media (max-width: 768px) { .toc { padding: 0 1rem; }}.toc { margin: 1rem 0;}.toc nav>ul { background-color: #eceff1; border-radius: 4px; display: inline-block; font-size: .8rem; padding: .5rem 1rem; word-break: break-all; list-style: none;}.toc ul { padding: 0;}.toc ul ul { padding-left: 1rem;}.toc ul ul ul { padding-left: 1rem;}.toc li { color: #90a4ae;}.toc ul ul>li { font-weight: 700; margin: .5rem 0; list-style-type: decimal;}.toc ul ul ul>li { list-style-type: disc; font-weight: 500;}.thumb { background-image: url(http://wuzhonglin.link/images/default.jpg); background-size: cover;}
+      
+      
+    </style>
+  </head>
+
+  <body>
+    
+    
+    
+
+    <header class="l-header">
+      <div class="l-container">
+        <div class="logo">
+          <a href="http://wuzhonglin.link/">呉さんの諸々</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="l-container">
+        
+<div class="mrow">
+  <div class="mcol c8">
+
+    
+
+    <div class="articles">
+      <div class="mrow">
+        
+        <div class="mcol c6"><article class="li">
+  <a href="http://wuzhonglin.link/post/docker_memo/">
+    <div class="thumb thumb-691c3a16bb0ce43a3f42775292c0456b"></div>
+
+    <div class="inner">
+      <h2 class="title">dockerについてのメモ</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-04-28T14:15:05JST">Apr 28, 2017</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POST</li>
+        
+      </ul>
+
+      <div class="summary">dockerについてのメモ dockerのイメージ作成 docker build --rm -q -f Dockerfile -t my-docker . dockerのイメージ一覧 docker images docker起動 docker run -it &lt;image id&gt; /bin/bash 起動している</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="http://wuzhonglin.link/post/aerospike_wo_tamesu3/">
+    <div class="thumb thumb-2754724c7db52f216c62c2ce538dbaa6"></div>
+
+    <div class="inner">
+      <h2 class="title">aerospikeを試す（その３）</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-02-01T11:41:01JST">Feb 1, 2017</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POST</li>
+        
+      </ul>
+
+      <div class="summary">LOGとaerospikeのテスト fluentdとaerospikeを組みあわせる fluentd のログデータをaerospikeに投入する場合を考える。</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="http://wuzhonglin.link/post/aerospike_wo_tamesu2/">
+    <div class="thumb thumb-c4f36f83761da30a75f7f784ebb5243f"></div>
+
+    <div class="inner">
+      <h2 class="title">aerospikeを試す（その２）</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-02-01T11:39:44JST">Feb 1, 2017</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POST</li>
+        
+      </ul>
+
+      <div class="summary">rubyによるアクセス rubyでaerospikeにアクセスしてみる。 install まずgemをインストール gem install aerospike レコード作成(ruby code) require 'rubygems' require 'aerospike' include Aerospike client</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+        <div class="mcol c6"><article class="li">
+  <a href="http://wuzhonglin.link/post/aerospike_wo_tamesu1/">
+    <div class="thumb thumb-01421f1e2bfcd3abc4a571b196e5def5"></div>
+
+    <div class="inner">
+      <h2 class="title">aerospikeを試す（その１）</h2>
+
+      <ul class="facts">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-02-01T11:36:34JST">Feb 1, 2017</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POST</li>
+        
+      </ul>
+
+      <div class="summary">aerospikeのinstall install http://www.aerospike.com/ を開く Try Communication Edition をクリック Set up an Aerospike Serverをクリック Linuxを選択してクリック Continueをクリ</div>
+    </div>
+  </a>
+</article>
+</div>
+        
+      </div>
+    </div>
+
+    
+
+  </div>
+  <div class="mcol c4">
+    <aside class="l-sidebar">
+
+  <div class="sections sidebar">
+    <section class="sidebar">
+      <header>LATESTS</header>
+      <div>
+        <div class="articles sm">
+          
+          <article class="lism">
+  <a href="http://wuzhonglin.link/post/docker_memo/">
+    <div class="thumb thumb-691c3a16bb0ce43a3f42775292c0456b"></div>
+
+    <div class="inner">
+      <div class="title">dockerについてのメモ</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-04-28T14:15:05JST">Apr 28, 2017</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POST</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+          
+          <article class="lism">
+  <a href="http://wuzhonglin.link/post/aerospike_wo_tamesu3/">
+    <div class="thumb thumb-2754724c7db52f216c62c2ce538dbaa6"></div>
+
+    <div class="inner">
+      <div class="title">aerospikeを試す（その３）</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-02-01T11:41:01JST">Feb 1, 2017</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POST</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+          
+          <article class="lism">
+  <a href="http://wuzhonglin.link/post/aerospike_wo_tamesu2/">
+    <div class="thumb thumb-c4f36f83761da30a75f7f784ebb5243f"></div>
+
+    <div class="inner">
+      <div class="title">aerospikeを試す（その２）</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-02-01T11:39:44JST">Feb 1, 2017</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POST</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+          
+          <article class="lism">
+  <a href="http://wuzhonglin.link/post/aerospike_wo_tamesu1/">
+    <div class="thumb thumb-01421f1e2bfcd3abc4a571b196e5def5"></div>
+
+    <div class="inner">
+      <div class="title">aerospikeを試す（その１）</div>
+
+      <ul class="facts sm">
+        <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-02-01T11:36:34JST">Feb 1, 2017</time></li>
+        <li><i class="fa fa-bookmark" aria-hidden="true"></i>POST</li>
+        
+      </ul>
+
+    </div>
+  </a>
+</article>
+
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="sidebar">
+      <header>CATEGORIES</header>
+      <div>
+        <ul class="terms">
+          <li><a href="http://wuzhonglin.link/categories/technology">technology</a></li>
+        </ul>
+      </div>
+    </section>
+    
+    <section class="sidebar">
+      <header>TAGS</header>
+      <div>
+        <ul class="terms">
+          <li><a href="http://wuzhonglin.link/tags/aerospike">aerospike</a></li><li><a href="http://wuzhonglin.link/tags/docker">docker</a></li>
+        </ul>
+      </div>
+    </section>
+    
+  </div>
 
 </aside>
 
-	</div>
-
+  </div>
 </div>
 
-</div>
+      </div>
+    </main>
 
-		</div>
+    <footer class="l-footer">
+      <div class="l-container">
+        <p><span class="h-logo">&copy; 呉さんの諸々</span></p>
+        <aside>
+          <p>Powered by <a href="https://gohugo.io/">Hugo</a>.</p>
+          <p><a href="https://github.com/dim0627/hugo_theme_robust">Robust</a> designed by <a href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>.</p>
+        </aside>
+      </div>
+    </footer>
 
-		<footer id="colophon" class="site-footer" role="contentinfo">
-
-			<div class="site-info">
-				<a href="http://gohugo.io">Proudly powered by Hugo</a>
-			</div>
-		</footer>
-	</div>
-
-	<script type='text/javascript' src='http://wuzhonglin.link/js/functions.js'></script>
-</body>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
 </html>
+

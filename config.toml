@@ -1,6 +1,6 @@
 languageCode = "ja-JP"
 title = "呉さんの諸々"
-baseURL = "http://wuzhonglin.link"
+baseURL = "http://wuzhonglin.link/"
 contentDir = "content"
 layoutDir = "layouts"
 publishDir = "public"
@@ -9,7 +9,7 @@ canonifyURLs = true
 hasCJKLanguage = true
 themesDir = "themes"
 staticDir = "static"
-theme = "twentyfourteen"
+theme = "robust"
 uglyurls = false
 relativeURLs = true
 
@@ -20,3 +20,6 @@ relativeURLs = true
 [params]
   description = "呉さんの諸々を記述したもの"
   author = "wu zhonglin"
+
+[outputs]
+  page = [ "HTML", "AMP" ]
