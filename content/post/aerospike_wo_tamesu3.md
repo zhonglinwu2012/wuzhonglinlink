@@ -3,7 +3,7 @@ tags = ["aerospike"]
 date = "2017-02-01T11:41:01+09:00"
 title = "aerospikeを試す（その３）"
 categories = ["technology"]
-
+thumbnail = "images/AerospikePhoto.jpeg"
 +++
 ---
 # LOGとaerospikeのテスト

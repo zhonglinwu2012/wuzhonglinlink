@@ -3,12 +3,15 @@ date = "2017-02-01T11:36:34+09:00"
 title = "aerospikeを試す（その１）"
 categories = ["technology"]
 tags = ["aerospike"]
-
+thumbnail = "images/AerospikePhoto.jpeg"
 +++
 
 ---
 # aerospikeのinstall
 ---
+
+{{% img src="images/AerospikePhoto.jpeg" %}}
+
 
 ## install
 

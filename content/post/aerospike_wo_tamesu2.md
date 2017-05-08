@@ -3,7 +3,7 @@ date = "2017-02-01T11:39:44+09:00"
 title = "aerospikeを試す（その２）"
 categories = ["technology"]
 tags = ["aerospike"]
-
+thumbnail = "images/AerospikePhoto.jpeg"
 +++
 ---
 # rubyによるアクセス

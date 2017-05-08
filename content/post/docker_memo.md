@@ -3,7 +3,7 @@ date = "2017-04-28T14:15:05+09:00"
 title = "dockerについてのメモ"
 categories = ["technology"]
 tags = ["docker"]
-
+thumbnail = "images/group5622-0.png"
 +++
 ---
 # dockerについてのメモ
